@@ -5,20 +5,19 @@ import com.william.entity.ResponseStatus;
 import com.william.entity.VideosEntity;
 import com.william.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/videos")
 public class RAdminVideoController {
     @Autowired
     private VideoService videoService;
 
     Response response = new Response();
 
-    @RequestMapping(value = "/addVideoApi",method = RequestMethod.POST)
+    @PostMapping
     public Response addNewVideo(@RequestBody VideosEntity videosEntity) {
         videoService.save(videosEntity);
         response.setData(videosEntity);
@@ -26,7 +25,7 @@ public class RAdminVideoController {
         response.setMessage("SUCCESS");
         return response;
     }
-    @RequestMapping(value = "/addVideoApi",method = RequestMethod.GET)
+    @GetMapping
     public Response allVideos() {
         Iterable<VideosEntity> videosEntities = videoService.findAll();
         response.setData(videosEntities);
@@ -34,4 +33,27 @@ public class RAdminVideoController {
         response.setMessage("SUCCESS");
         return response;
     }
+    @DeleteMapping
+    public Response deleteVideo(@RequestParam(name = "idVideo") int id) {
+        videoService.deleteById(id);
+        response.setData("ok");
+        response.setStatus(ResponseStatus.SUCCESS);
+        response.setMessage("SUCCESS");
+        return response;
+    }
+    @GetMapping("/find")
+    public Response findVideo(@RequestParam(name = "idVideo") int id) {
+        Optional<VideosEntity> videosEntity = videoService.findById(id);
+        if (videosEntity == null){
+            response.setData(null);
+            response.setStatus(ResponseStatus.ERROR);
+            response.setMessage("ERROR");
+            return response;
+        }
+        response.setData(videosEntity);
+        response.setStatus(ResponseStatus.SUCCESS);
+        response.setMessage("SUCCESS");
+        return response;
+    }
+
 }
