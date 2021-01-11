@@ -112,7 +112,7 @@
 		<!-- end sidebar nav -->
 		
 		<!-- sidebar copyright -->
-		<div class="sidebar__copyright">© 2020 FlixGo. <br>Create by <a href="https://themeforest.net/user/dmitryvolkov/portfolio" target="_blank">Dmitry Volkov</a></div>
+		<div class="sidebar__copyright">© 2020 FlixWilliam. <br>Create by <a href="https://www.facebook.com/beodeptrailoitaiai/" target="_blank">William Nguyen</a></div>
 		<!-- end sidebar copyright -->
 	</div>
 	<!-- end sidebar -->
@@ -160,11 +160,19 @@
 									</div>
 
 									<div class="col-12 col-sm-6 col-lg-3">
-										<input type="text" class="form__input" placeholder="Running timed in minutes">
+										<input type="text" class="form__input" placeholder="Imdb score">
 									</div>
 
 									<div class="col-12 col-sm-6 col-lg-3">
 										<select class="js-example-basic-single" id="quality">
+											<option value=""></option>
+											<option value="FullHD">FullHD</option>
+											<option value="HD">HD</option>
+										</select>
+									</div>
+
+									<div class="col-12 col-sm-6 col-lg-3">
+										<select class="js-example-basic-single" id="Category">
 											<option value=""></option>
 											<option value="FullHD">FullHD</option>
 											<option value="HD">HD</option>
@@ -401,6 +409,15 @@
 										</select>
 									</div>
 
+									<div class="col-12 col-sm-6 col-lg-3">
+										<select class="js-example-basic-single" id="StatusVideo">
+											<option value=""></option>
+											<option value="FullHD">FullHD</option>
+											<option value="HD">HD</option>
+										</select>
+									</div>
+
+
 									<div class="col-12 col-lg-6">
 										<select class="js-example-basic-multiple" id="genre" multiple="multiple">
 											<option value="Action">Action</option>
@@ -418,6 +435,10 @@
 											<option value="Otheer">Otheer</option>
 										</select>
 									</div>
+
+
+
+
 
 									<div class="col-12">
 										<div class="form__gallery">
@@ -450,12 +471,25 @@
 									<div class="col-12">
 										<div class="collapse show multi-collapse" id="multiCollapseExample1">
 											<div class="form__video">
+												<label id="movie1" for="form__video-upload">Upload trailer video</label>
+												<input data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
+											</div>
+										</div>
+									</div>
+									<!-- end movie -->
+									<!-- movie -->
+									<div class="col-12">
+										<div class="collapse show multi-collapse" id="multiCollapseExample1">
+											<div class="form__video">
 												<label id="movie1" for="form__video-upload">Upload video</label>
 												<input data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
 											</div>
 										</div>
 									</div>
 									<!-- end movie -->
+
+
+
 
 									<!-- tv series -->
 									<div class="col-12">

@@ -66,6 +66,16 @@ $(document).ready(function () {
 		allowClear: true
 	});
 
+	$('#Category').select2({
+		placeholder: "Choose Category",
+		allowClear: true
+	});
+
+	$('#StatusVideo').select2({
+		placeholder: "Choose Status",
+		allowClear: true
+	});
+
 	$('#country').select2({
 		placeholder: "Choose country / countries"
 	});
