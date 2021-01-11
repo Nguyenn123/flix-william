@@ -11,7 +11,7 @@ public class CategoryEntity {
     private String nameCategory;
     private String description;
     private int status;
-    private Timestamp createTime;
+//    private Timestamp createTime;
 
     @Id
     @Column(name = "id")
@@ -53,26 +53,26 @@ public class CategoryEntity {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "create_time")
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
+//    @Basic
+//    @Column(name = "create_time")
+//    public Timestamp getCreateTime() {
+//        return createTime;
+//    }
+//
+//    public void setCreateTime(Timestamp createTime) {
+//        this.createTime = createTime;
+//    }
 
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        CategoryEntity that = (CategoryEntity) o;
+//        return id == that.id && status == that.status && Objects.equals(nameCategory, that.nameCategory) && Objects.equals(description, that.description) && Objects.equals(createTime, that.createTime);
+//    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CategoryEntity that = (CategoryEntity) o;
-        return id == that.id && status == that.status && Objects.equals(nameCategory, that.nameCategory) && Objects.equals(description, that.description) && Objects.equals(createTime, that.createTime);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nameCategory, description, status, createTime);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, nameCategory, description, status, createTime);
+//    }
 }
