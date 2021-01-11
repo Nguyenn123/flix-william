@@ -17,6 +17,17 @@ public class AccountEntity {
     private Integer statusMember;
     private Timestamp createTime;
 
+
+    public AccountEntity(String username, String password, String email, Integer phoneNumber) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public AccountEntity() {
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {
@@ -74,7 +85,7 @@ public class AccountEntity {
     }
 
     public void setRole(Integer role) {
-        this.role = role;
+        this.role = 10002;
     }
 
     @Basic
