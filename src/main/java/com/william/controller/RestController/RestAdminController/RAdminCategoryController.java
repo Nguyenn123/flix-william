@@ -9,6 +9,10 @@ import com.william.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -21,6 +25,7 @@ public class RAdminCategoryController {
 
     @PostMapping
     public Response addNewCategory(@RequestBody CategoryEntity categoryEntity) {
+        categoryEntity.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
         categoryService.save(categoryEntity);
         response.setData(categoryEntity);
         response.setStatus(ResponseStatus.SUCCESS);
