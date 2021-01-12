@@ -43,7 +43,7 @@ public class RAdminVideoController {
     }
     @GetMapping("/find")
     public Response findVideo(@RequestParam(name = "idVideo") int id) {
-        Optional<VideosEntity> videosEntity = videoService.findById(id);
+        VideosEntity videosEntity = (VideosEntity) videoService.findById(id);
         if (videosEntity == null){
             response.setData(null);
             response.setStatus(ResponseStatus.ERROR);

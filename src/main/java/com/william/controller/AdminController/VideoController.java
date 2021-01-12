@@ -41,6 +41,11 @@ public class VideoController {
         return modelAndView;
     }
 
+    @RequestMapping("/videos")
+    public ModelAndView Video(){
+        ModelAndView modelAndView = new ModelAndView("/backend/catalog");
+        return modelAndView;
+    }
 
     @PostMapping("/create")
     public RedirectView createProduct(@ModelAttribute VideoForm videoForm){

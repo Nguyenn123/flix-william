@@ -11,6 +11,8 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter {
 
         registry.addResourceHandler("frontend/**").addResourceLocations("classpath:/static/frontend/");
         registry.addResourceHandler("admin/backend/**").addResourceLocations("classpath:/static/backend/");
-
+        registry.addResourceHandler("database/videos/**").addResourceLocations("classpath:/static/database/videos/");
+        registry.addResourceHandler("database/images/**").addResourceLocations("classpath:/static/database/images/");
+        registry.addResourceHandler("database/videosTrailer/**").addResourceLocations("classpath:/static/database/videosTrailer/");
     }
 }
