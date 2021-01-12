@@ -37,4 +37,17 @@ public class AccountService implements IAccountService {
         }
         return isDelete;
     }
+
+    @Override
+    public boolean existsAccountEntitiesByUsernameAndPassword(String username, String password) {
+        if (accountRepository.existsAccountEntitiesByUsernameAndPassword(username, password)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Optional<AccountEntity> findByUsername(String username) {
+        return accountRepository.findAccountEntitiesByUsername(username);
+    }
 }

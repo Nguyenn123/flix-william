@@ -2,6 +2,7 @@ package com.william.controller.RestController.RestAdminController;
 
 
 import com.william.entity.AccountEntity;
+import com.william.entity.LoginEntity;
 import com.william.entity.Response;
 import com.william.entity.ResponseStatus;
 import com.william.service.IAccountService;
@@ -59,4 +60,16 @@ public class RestAccountController {
         return res;
     }
 
+    @PostMapping("/check")
+    public Response checkLogin(@RequestBody LoginEntity l){
+        if (accountService.existsAccountEntitiesByUsernameAndPassword(l.getUsername(), l.getPassword())) {
+            res.setData(accountService.findByUsername(l.getUsername()));
+            res.setStatus(ResponseStatus.SUCCESS);
+            res.setMessage("Success");
+
+        }else {
+            res.setStatus(ResponseStatus.ERROR);
+        }
+        return res;
+    }
 }

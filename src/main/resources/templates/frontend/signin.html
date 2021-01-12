@@ -47,11 +47,11 @@
 							</a>
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Email">
+								<input type="text" class="sign__input" placeholder="UserName" id="username">
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" placeholder="Password">
+								<input type="password" class="sign__input" placeholder="Password" id="password">
 							</div>
 
 							<div class="sign__group sign__group--checkbox">
@@ -59,7 +59,7 @@
 								<label for="remember">Remember Me</label>
 							</div>
 							
-							<button class="sign__btn" type="button">Sign in</button>
+							<button class="sign__btn" type="submit" onclick="login()">Sign in</button>
 
 							<span class="sign__text">Don't have an account? <a href="signup.html">Sign up!</a></span>
 
@@ -86,5 +86,32 @@
 	<script src="js/photoswipe-ui-default.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
-
+<script>
+	function login() {
+		let username = $('#username').val();
+		let password = $('#password').val();
+		let l = {
+			"username":username,
+			"password":password
+		}
+		$.ajax({
+			headers:{
+				'Accept':'application/json',
+				'Content-Type': 'application/json'
+			},
+			data:JSON.stringify(l),
+			type:"POST",
+			url:"http://localhost:8080/home/login/check",
+			success:function (res){
+				if (res.status == 1){
+					alert("Dang nhap thanh cong!");
+				}else {
+					alert("tach tach");
+				}
+			},
+			error:function (){
+			}
+		})
+	}
+</script>
 </html>

@@ -9,4 +9,6 @@ public interface IAccountService {
     Optional findById(int id);
     Iterable<AccountEntity> findAll();
     boolean remove(int id);
+    boolean existsAccountEntitiesByUsernameAndPassword(String username,String password);
+    Optional findByUsername(String username);
 }

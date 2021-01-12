@@ -47,15 +47,19 @@
 							</a>
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Name">
+								<input type="text" class="sign__input" placeholder="UserName" id="username">
 							</div>
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Email">
+								<input type="text" class="sign__input" placeholder="Email" id="email">
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" placeholder="Password">
+								<input type="password" class="sign__input" placeholder="Password" id="password">
+							</div>
+
+							<div class="sign__group">
+								<input type="number" class="sign__input" placeholder="Phone Number" id="phone_number">
 							</div>
 
 							<div class="sign__group sign__group--checkbox">
@@ -63,7 +67,7 @@
 								<label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
 							</div>
 							
-							<button class="sign__btn" type="button">Sign up</button>
+							<button class="sign__btn" type="submit" onclick="signup()">Sign up</button>
 
 							<span class="sign__text">Already have an account? <a href="signin.html">Sign in!</a></span>
 						</form>
@@ -88,5 +92,38 @@
 	<script src="js/photoswipe-ui-default.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
+<script>
+	function signup() {
+		let username = $('#username').val();
+		let password = $('#password').val();
+		let email = $('#email').val();
+		let phone_number = $('#phone_number').val();
+		let a = {
+			"username":username,
+			"password":password,
+			"email":email,
+			"phone_number":phone_number
+		}
+		$.ajax({
+			headers:{
+				'Accept':'application/json',
+				'Content-Type': 'application/json'
+			},
+			data:JSON.stringify(a),
+			type:"POST",
+			url:"http://localhost:8080/home/login/",
 
+			success:function (){
+				debugger
+				alert("Dang ky thanh cong!")
+				 $('#username').val('');
+				 $('#password').val('');
+				 $('#email').val('');
+				 $('#phone_number').val('');
+			},
+			error:function (){
+			}
+		})
+	}
+</script>
 </html>
