@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new product</title>
+</head>
+<body>
+<h1>Create new product</h1>
+<form method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>title</td>
+            <td><input type="text" name="title"></td>
+        </tr>
+        <tr>
+            <td>Desciption</td>
+            <td><input type="text" name="Desciption"></td>
+        </tr>
+        <tr>
+            <td>videoEmbed</td>
+            <td><input type="file" name="videoEmbed"></td>
+        </tr>
+        <tr>
+            <td>videotrailerEmbed</td>
+            <td><input type="file" name="videotrailerEmbed"></td>
+        </tr>
+        <tr>
+            <td>imgVideo</td>
+            <td><input type="file" name="imgVideo"></td>
+        </tr>
+        <tr>
+            <td>imdbScore</td>
+            <td><input type="number" name="imdbScore"></td>
+        </tr>
+        <tr>
+            <td>accountId</td>
+            <td><input type="number" name="accountId"></td>
+        </tr>
+        <tr>
+            <td>categoryId</td>
+            <td><input type="number" name="categoryId"></td>
+        </tr>
+        <tr>
+            <td>statusVideo</td>
+            <td><input type="number" name="statusVideo"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+    </table>
+</form>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+<script>
+    //form Submit
+    $("form").submit(function (evt) {
+        evt.preventDefault();
+        var formData = new FormData($(this)[0]);
+        $.ajax({
+            url: '/admin/create',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: function (response) {
+                alert(response);
+            }
+        });
+        return false;
+    });
+
+</script>
+</body>
+</html>
