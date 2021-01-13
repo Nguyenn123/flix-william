@@ -18,6 +18,10 @@ public class VideosEntity {
     private int categoryId;
     private int statusVideo;
     private Timestamp createtime;
+    private Integer releaseYear;
+    private String runningTime;
+    private String country;
+    private String maxQuality;
 
     @Id
     @Column(name = "id")
@@ -129,16 +133,56 @@ public class VideosEntity {
         this.createtime = createtime;
     }
 
+    @Basic
+    @Column(name = "Release_year")
+    public Integer getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(Integer releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    @Basic
+    @Column(name = "Running_time")
+    public String getRunningTime() {
+        return runningTime;
+    }
+
+    public void setRunningTime(String runningTime) {
+        this.runningTime = runningTime;
+    }
+
+    @Basic
+    @Column(name = "Country")
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Basic
+    @Column(name = "max_quality")
+    public String getMaxQuality() {
+        return maxQuality;
+    }
+
+    public void setMaxQuality(String maxQuality) {
+        this.maxQuality = maxQuality;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VideosEntity that = (VideosEntity) o;
-        return id == that.id && accountId == that.accountId && categoryId == that.categoryId && statusVideo == that.statusVideo && Objects.equals(title, that.title) && Objects.equals(videoEmbed, that.videoEmbed) && Objects.equals(videotrailerEmbed, that.videotrailerEmbed) && Objects.equals(imgVideo, that.imgVideo) && Objects.equals(description, that.description) && Objects.equals(imdbScore, that.imdbScore) && Objects.equals(createtime, that.createtime);
+        return id == that.id && accountId == that.accountId && categoryId == that.categoryId && statusVideo == that.statusVideo && Objects.equals(title, that.title) && Objects.equals(videoEmbed, that.videoEmbed) && Objects.equals(videotrailerEmbed, that.videotrailerEmbed) && Objects.equals(imgVideo, that.imgVideo) && Objects.equals(description, that.description) && Objects.equals(imdbScore, that.imdbScore) && Objects.equals(createtime, that.createtime) && Objects.equals(releaseYear, that.releaseYear) && Objects.equals(runningTime, that.runningTime) && Objects.equals(country, that.country) && Objects.equals(maxQuality, that.maxQuality);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, videoEmbed, videotrailerEmbed, imgVideo, description, imdbScore, accountId, categoryId, statusVideo, createtime);
+        return Objects.hash(id, title, videoEmbed, videotrailerEmbed, imgVideo, description, imdbScore, accountId, categoryId, statusVideo, createtime, releaseYear, runningTime, country, maxQuality);
     }
 }
