@@ -806,31 +806,6 @@
 												<input id="status" type="text" name="status" value="10002" class="profile__input" >
 											</div>
 										</div>
-
-
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="subscription">Subscription</label>
-												<select class="js-example-basic-single" id="subscription">
-													<option value="Basic">Basic</option>
-													<option value="Premium">Premium</option>
-													<option value="Cinematic">Cinematic</option>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="rights">Rights</label>
-												<select class="js-example-basic-single" id="rights">
-													<option value="User">User</option>
-													<option value="Moderator">Moderator</option>
-													<option value="Admin">Admin</option>
-												</select>
-											</div>
-										</div>
-
 										<div class="col-12">
 											<button class="profile__btn" id="summitCategory" type="button">Save</button>
 										</div>
@@ -839,42 +814,7 @@
 							</div>
 							<!-- end details form -->
 
-							<!-- password form -->
-							<div class="col-12 col-lg-6">
-								<form action="#" class="profile__form">
-									<div class="row">
-										<div class="col-12">
-											<h4 class="profile__title">Change password</h4>
-										</div>
 
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="oldpass">Old Password</label>
-												<input id="oldpass" type="password" name="oldpass" class="profile__input">
-											</div>
-										</div>
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="newpass">New Password</label>
-												<input id="newpass" type="password" name="newpass" class="profile__input">
-											</div>
-										</div>
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="confirmpass">Confirm New Password</label>
-												<input id="confirmpass" type="password" name="confirmpass" class="profile__input">
-											</div>
-										</div>
-
-										<div class="col-12">
-											<button class="profile__btn" type="button">Change</button>
-										</div>
-									</div>
-								</form>
-							</div>
-							<!-- end password form -->
 						</div>
 					</div>
 				</div>
@@ -913,7 +853,11 @@
 				tbBody.innerHTML=`<tr>`;
 				// tbBody.empty()
 				$.each(responce.data, function (i, item) {
-					console.log(item.id)
+					if (item.status=="10001"){
+						item.status="active"
+					}else {
+						item.status="deactivate"
+					}
 					row +=`<tr>
 
                     <td><div class="main__table-text">${item.id}</div></td>

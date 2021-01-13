@@ -1,12 +1,8 @@
-package com.william.controller.AdminController;
+package com.william.controller.RestController.RestAdminController;
 
-import com.william.entity.CategoryEntity;
-import com.william.entity.Response;
+import com.william.entity.*;
 import com.william.entity.ResponseStatus;
-import com.william.entity.VideosEntity;
-import com.william.service.ICategoryService;
-import com.william.service.IVideoService;
-import com.william.service.VideoService;
+import com.william.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.w3c.dom.stylesheets.LinkStyle;
@@ -21,8 +17,14 @@ public class CategoryController {
 
     @Autowired
     private ICategoryService categoryService;
+    @Autowired
+    private IStatusService statusService;
     Response response = new Response();
 
+    @ModelAttribute("status")
+    public Iterable<StatusEntity> provinces() {
+        return statusService.findAll();
+    }
 
     @GetMapping()
     public Response findAllCategory() {
@@ -33,6 +35,7 @@ public class CategoryController {
         return response;
 
     }
+
     @GetMapping("/detail")
     public Response findByID(@RequestParam int id) {
         Optional<CategoryEntity> categoryEntityOptional = categoryService.findById(id);
@@ -43,16 +46,18 @@ public class CategoryController {
         return response;
 
     }
+
     @PutMapping("/update")
-    public Response update(@RequestBody CategoryEntity c){
+    public Response update(@RequestBody CategoryEntity c) {
         categoryService.save(c);
         response.setData(c);
         response.setStatus(ResponseStatus.SUCCESS);
         response.setMessage("ok");
         return response;
     }
+
     @PostMapping("/create")
-    public Response create(@RequestBody CategoryEntity c){
+    public Response create(@RequestBody CategoryEntity c) {
         categoryService.save(c);
         response.setData(c);
         response.setStatus(ResponseStatus.SUCCESS);
@@ -62,11 +67,12 @@ public class CategoryController {
 
 
     @DeleteMapping("/delete")
-    public Response delete(@RequestParam int id){
+    public Response delete(@RequestParam int id) {
         categoryService.deleteById(id);
         response.setStatus(ResponseStatus.SUCCESS);
         response.setMessage("ok");
         return response;
     }
+
 
 }
