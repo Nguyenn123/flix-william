@@ -3,9 +3,10 @@ package com.william.service;
 import com.william.entity.RolesEntity;
 import com.william.repository.IRolesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class RolesService implements IRolesService {
     @Autowired
     private IRolesRepository rolesRepository;

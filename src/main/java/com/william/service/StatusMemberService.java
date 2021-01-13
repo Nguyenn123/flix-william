@@ -3,8 +3,10 @@ package com.william.service;
 import com.william.entity.StatusMemberEntity;
 import com.william.repository.IStatusMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+@Service
 
 public class StatusMemberService implements IStatusMemberService {
     @Autowired

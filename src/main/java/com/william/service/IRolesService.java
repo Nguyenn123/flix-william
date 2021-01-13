@@ -4,7 +4,7 @@ import com.william.entity.RolesEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-@Service
+
 public interface IRolesService {
     Iterable<RolesEntity> findAll();
     Optional<RolesEntity> findById(int id);
