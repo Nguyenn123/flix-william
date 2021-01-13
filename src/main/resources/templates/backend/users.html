@@ -7,18 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="css/select2.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/admin.css">
+	<link rel="stylesheet" href="backend/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="backend/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="backend/css/magnific-popup.css">
+	<link rel="stylesheet" href="backend/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="backend/css/select2.min.css">
+	<link rel="stylesheet" href="backend/css/ionicons.min.css">
+	<link rel="stylesheet" href="backend/css/admin.css">
+
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
 	<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
-
+	<style>.myHidden{
+		display: none;
+	}</style>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Dmitry Volkov">
@@ -116,15 +119,15 @@
 		<!-- end sidebar copyright -->
 	</div>
 	<!-- end sidebar -->
-
+-------------------------------------------------------------------------------------------------
 	<!-- main content -->
-	<main class="main">
+	<main class="main" id="user-main">
 		<div class="container-fluid">
 			<div class="row">
 				<!-- main title -->
 				<div class="col-12">
 					<div class="main__title">
-						<h2>Users</h2>
+						<h2>Usersssssssss</h2>
 
 						<span class="main__title-stat">3,702 Total</span>
 
@@ -166,488 +169,67 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>BASIC INFO</th>
-									<th>USERNAME</th>
-									<th>PRICING PLAN</th>
-									<th>COMMENTS</th>
-									<th>REVIEWS</th>
-									<th>STATUS</th>
-									<th>CRAETED DATE</th>
+									<th>USER NAME</th>
+									<th>PASSWORD</th>
+									<th>EMAIL</th>
+									<th>PHONE NUMBER</th>
+									<th>ROLE</th>
+									<th>STATUS ACCOUNT</th>
+									<th>STATUS MEMBER</th>
+									<th>CREATED DATE</th>
 									<th>ACTIONS</th>
 								</tr>
 							</thead>
 
-							<tbody>
-								<tr>
-									<td>
-										<div class="main__table-text">23</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Premium</div>
-									</td>
-									<td>
-										<div class="main__table-text">13</div>
-									</td>
-									<td>
-										<div class="main__table-text">1</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">24</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Free</div>
-									</td>
-									<td>
-										<div class="main__table-text">1</div>
-									</td>
-									<td>
-										<div class="main__table-text">15</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">25</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Premium</div>
-									</td>
-									<td>
-										<div class="main__table-text">6</div>
-									</td>
-									<td>
-										<div class="main__table-text">6</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">26</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Free</div>
-									</td>
-									<td>
-										<div class="main__table-text">11</div>
-									</td>
-									<td>
-										<div class="main__table-text">15</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--red">Banned</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">27</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Basic</div>
-									</td>
-									<td>
-										<div class="main__table-text">0</div>
-									</td>
-									<td>
-										<div class="main__table-text">0</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">28</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Free</div>
-									</td>
-									<td>
-										<div class="main__table-text">2</div>
-									</td>
-									<td>
-										<div class="main__table-text">1</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">29</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Cinematic</div>
-									</td>
-									<td>
-										<div class="main__table-text">65</div>
-									</td>
-									<td>
-										<div class="main__table-text">0</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">30</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Premium</div>
-									</td>
-									<td>
-										<div class="main__table-text">0</div>
-									</td>
-									<td>
-										<div class="main__table-text">0</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--red">Banned</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">31</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Premium</div>
-									</td>
-									<td>
-										<div class="main__table-text">13</div>
-									</td>
-									<td>
-										<div class="main__table-text">1</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--green">Approved</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="main__table-text">32</div>
-									</td>
-									<td>
-										<div class="main__user">
-											<div class="main__avatar">
-												<img src="img/user.svg" alt="">
-											</div>
-											<div class="main__meta">
-												<h3>John Doe</h3>
-												<span>email@email.com</span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="main__table-text">Username</div>
-									</td>
-									<td>
-										<div class="main__table-text">Free</div>
-									</td>
-									<td>
-										<div class="main__table-text">1</div>
-									</td>
-									<td>
-										<div class="main__table-text">15</div>
-									</td>
-									<td>
-										<div class="main__table-text main__table-text--red">Banned</div>
-									</td>
-									<td>
-										<div class="main__table-text">24 Oct 2019</div>
-									</td>
-									<td>
-										<div class="main__table-btns">
-											<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">
-												<i class="icon ion-ios-lock"></i>
-											</a>
-											<a href="edit-user.html" class="main__table-btn main__table-btn--edit">
-												<i class="icon ion-ios-create"></i>
-											</a>
-											<a href="#modal-delete" class="main__table-btn main__table-btn--delete open-modal">
-												<i class="icon ion-ios-trash"></i>
-											</a>
-										</div>
-									</td>
-								</tr>
+							<tbody id="dataTable">
+<!--								<tr>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">23</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__user">-->
+<!--											<div class="main__avatar">-->
+<!--												<img src="img/user.svg" alt="">-->
+<!--											</div>-->
+<!--											<div class="main__meta">-->
+<!--												<h3>John Doe</h3>-->
+<!--												<span>email@email.com</span>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">Username</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">Premium</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">13</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">1</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text main__table-text&#45;&#45;green">Approved</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-text">24 Oct 2019</div>-->
+<!--									</td>-->
+<!--									<td>-->
+<!--										<div class="main__table-btns">-->
+<!--											<a href="#modal-status" class="main__table-btn main__table-btn&#45;&#45;banned open-modal">-->
+<!--												<i class="icon ion-ios-lock"></i>-->
+<!--											</a>-->
+<!--											<a href="edit-user.html" class="main__table-btn main__table-btn&#45;&#45;edit">-->
+<!--												<i class="icon ion-ios-create"></i>-->
+<!--											</a>-->
+<!--											<a href="#modal-delete" class="main__table-btn main__table-btn&#45;&#45;delete open-modal">-->
+<!--												<i class="icon ion-ios-trash"></i>-->
+<!--											</a>-->
+<!--										</div>-->
+<!--									</td>-->
+<!--								</tr>-->
+
 							</tbody>
 						</table>
 					</div>
@@ -679,41 +261,306 @@
 	</main>
 	<!-- end main content -->
 
-	<!-- modal status -->
-	<div id="modal-status" class="zoom-anim-dialog mfp-hide modal">
-		<h6 class="modal__title">Status change</h6>
+	<main class="main myHidden" id="save-user">
+		<div class="container-fluid">
+			<div class="row">
+				<!-- main title -->
+				<div class="col-12">
+					<div class="main__title">
+						<h2>Category Edit</h2>
+					</div>
+				</div>
+				<!-- end main title -->
 
-		<p class="modal__text">Are you sure about immediately change status?</p>
+				<!-- profile -->
+				<div class="col-12">
+					<div class="profile__content">
+						<!-- profile user -->
 
-		<div class="modal__btns">
-			<button class="modal__btn modal__btn--apply" type="button">Apply</button>
-			<button class="modal__btn modal__btn--dismiss" type="button">Dismiss</button>
+						<!-- or red -->
+						<div class="profile__meta profile__meta--green">
+							<h3>Category name <span>(Approved)</span></h3>
+							<span>Category ID: 23562</span>
+						</div>
+					</div>
+					<!-- end profile user -->
+
+
+					<!-- profile mobile tabs nav -->
+					<div class="profile__mobile-tabs" id="profile__mobile-tabs">
+						<div class="profile__mobile-tabs-btn dropdown-toggle" role="navigation" id="mobile-tabs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<input type="button" value="Profile">
+							<span></span>
+						</div>
+
+						<div class="profile__mobile-tabs-menu dropdown-menu" aria-labelledby="mobile-tabs">
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item"><a class="nav-link active" id="1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Profile</a></li>
+
+								<li class="nav-item"><a class="nav-link" id="2-tab" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Comments</a></li>
+
+								<li class="nav-item"><a class="nav-link" id="3-tab" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Reviews</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- end profile mobile tabs nav -->
+
+					<!-- profile btns -->
+
+					<!-- end profile btns -->
+				</div>
+			</div>
+			<!-- end profile -->
+
+			<!-- content tabs -->
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
+					<div class="col-12">
+						<div class="row">
+							<!-- details form -->
+							<div class="col-12 col-lg-6">
+								<form action="#" class="profile__form">
+									<div class="row">
+										<div class="col-12">
+											<h4 class="profile__title">Category details</h4>
+										</div>
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="id">ID</label>
+												<input id="id" type="text" name="id" class="profile__input" disabled>
+											</div>
+										</div>
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="username">USER NAME</label>
+												<input id="username" type="text" name="username" class="profile__input" >
+											</div>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="email">EMAIL</label>
+												<input id="email" type="text" name="email" class="profile__input" >
+											</div>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="phonenumber">PHONE NUMBER </label>
+												<input id="phonenumber" type="text" name="phonenumber"  class="profile__input" >
+											</div>
+										</div>
+
+
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="statusmember">STATUS MEMBER</label>
+												<select class="js-example-basic-single" id="statusmember">
+													<option value="Basic">Basic</option>
+													<option value="Premium">Premium</option>
+													<option value="Cinematic">Cinematic</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="role">ROLE</label>
+												<select class="js-example-basic-single" id="role">
+													<option value="User">User</option>
+													<option value="Moderator">Moderator</option>
+													<option value="Admin">Admin</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-12">
+											<button class="profile__btn" id="summitCategory" type="button">Save</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end details form -->
+
+							<!-- password form -->
+							<div class="col-12 col-lg-6">
+								<form action="#" class="profile__form">
+									<div class="row">
+										<div class="col-12">
+											<h4 class="profile__title">Change password</h4>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="oldpass">Old Password</label>
+												<input id="oldpass" type="password" name="oldpass" class="profile__input">
+											</div>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="newpass">New Password</label>
+												<input id="newpass" type="password" name="newpass" class="profile__input">
+											</div>
+										</div>
+
+										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="confirmpass">Confirm New Password</label>
+												<input id="confirmpass" type="password" name="confirmpass" class="profile__input">
+											</div>
+										</div>
+
+										<div class="col-12">
+											<button class="profile__btn" type="button">Change</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end password form -->
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
-	</div>
-	<!-- end modal status -->
-
-	<!-- modal delete -->
-	<div id="modal-delete" class="zoom-anim-dialog mfp-hide modal">
-		<h6 class="modal__title">User delete</h6>
-
-		<p class="modal__text">Are you sure to permanently delete this user?</p>
-
-		<div class="modal__btns">
-			<button class="modal__btn modal__btn--apply" type="button">Delete</button>
-			<button class="modal__btn modal__btn--dismiss" type="button">Dismiss</button>
-		</div>
-	</div>
-	<!-- end modal delete -->
+	</main>
 
 	<!-- JS -->
-	<script src="js/jquery-3.5.1.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.min.js"></script>
-	<script src="js/select2.min.js"></script>
-	<script src="js/admin.js"></script>
+	<script src="backend/js/jquery-3.5.1.min.js"></script>
+	<script src="backend/js/bootstrap.bundle.min.js"></script>
+	<script src="backend/js/jquery.magnific-popup.min.js"></script>
+	<script src="backend/js/jquery.mousewheel.min.js"></script>
+	<script src="backend/js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="backend/js/select2.min.js"></script>
+	<script src="backend/js/admin.js"></script>
 </body>
+<script>
+	$(document).ready(showList());
+	function showList() {
+		document.getElementById("dataTable").innerHTML="";
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8080/home/login",
+			success: function (account) {
+				$.each(account.data, function (index, item) {
+					$('<tr>').append(
+							$('<td>').append($('<div class="main__table-text">').text(item.id)),
+							$('<td>').append($('<div class="main__table-text">').text(item.username)),
+							$('<td>').append($('<div class="main__table-text">').text(item.password)),
+							$('<td>').append($('<div class="main__table-text">').text(item.email)),
+							$('<td>').append($('<div class="main__table-text">').text(item.phoneNumber)),
+							$('<td>').append($('<div class="main__table-text">').text(item.role)),
+							$('<td>').append($('<div class="main__table-text">').text(item.statusAccount)),
+							$('<td>').append($('<div class="main__table-text">').text(item.statusMember)),
+							$('<td>').append($('<div class="main__table-text">').text(item.createTime)),
+							$('<td>').append(
+									$('<div class="main__table-btns">').append(
+										$('<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">').append($('<i class="icon ion-ios-lock">')),
+										$('<button class="main__table-btn main__table-btn--edit" onclick="showEdit('+item.id+')">').append($('<i class="icon ion-ios-create">')),
+										$('<button type="button" onclick="remove('+item.id+')" class="main__table-btn main__table-btn--delete">').append($('<i class="icon ion-ios-trash">')),
+									)
+							)
+					).appendTo('#dataTable');
+				});
+			},
+			error: function () {
+			}
+		})
+	}
 
+
+
+	function remove(id) {
+		if (confirm("you are sure?")) {
+			$.ajax({
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				type: "DELETE",
+				url: "http://localhost:8080/home/login/" + id,
+				success: function (res) {
+					if (res.status == 1) {
+						alert("Xóa thành công!")
+						showList();
+					} else {
+						alert("tach tach");
+					}
+				},
+				error: function () {
+				}
+			});
+		}
+	}
+	var showEditPage= document.querySelector("#save-user")
+	var showUserPage=document.querySelector("#user-main")
+
+	function showEdit(id) {
+		showEditPage.classList.remove("myHidden");
+		showUserPage.classList.add("myHidden");
+
+		$.ajax({
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			type: "GET",
+			url: "http://localhost:8080/home/login/find?id=" + id,
+			success: function (res) {
+				$('#id').val(res.data.id)
+				$('#username').val(res.data.username)
+				$('#email').val(res.data.email)
+				$('#phonenumber').val(res.data.phoneNumber)
+			},
+			error: function () {
+			}
+		});
+
+	}
+
+	$(document).ready(function () {
+		var account = {}
+		var linkUrl = "";
+		var methodName = "";
+		// $('#createCategory').click(function () {
+		// 	categoryPage.classList.add('myHidden')
+		// 	categorySave.classList.remove('myHidden')
+		// 	$('#idCategory').val("")
+		// })
+		$('#summitCategory').click(function () {
+			account.username = $("#username").val()
+			account.email = $("#email").val()
+			account.phoneNumber = $("#phonenumber").val()
+			var id = $("#id").val()
+			if (id) {
+				linkUrl = "http://localhost:8080/home/login/"+id
+				console.log(linkUrl)
+				methodName = "PUT"
+				account.id = id
+			} else {
+				methodName = "POST"
+				linkUrl = "http://localhost:8080/home/login"
+			}
+account.password=1255;
+			var productObj = JSON.stringify(account)
+			console.log(account)
+			$.ajax({
+				url: linkUrl,
+				type: methodName,
+				data: productObj,
+				contentType: 'application/json;charset=utf-8',
+				success: function () {
+					showEditPage.classList.add("myHidden");
+					showUserPage.classList.remove("myHidden");
+					showList()
+				},error:function (){
+					alert("ngu")
+				}
+			})
+		})
+	})
+</script>
 <!-- Mirrored from dmitryvolkov.me/demo/flixgo2.0/admin/users.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jan 2021 02:59:57 GMT -->
 </html>

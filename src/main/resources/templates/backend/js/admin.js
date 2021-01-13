@@ -51,6 +51,7 @@ $(document).ready(function () {
 		modal: false,
 		removalDelay: 300,
 		mainClass: 'my-mfp-zoom-in',
+
 	});
 
 	$('.modal__btn--dismiss').on('click', function (e) {

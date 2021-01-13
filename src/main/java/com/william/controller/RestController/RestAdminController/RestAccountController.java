@@ -21,7 +21,7 @@ public class RestAccountController {
     private IAccountService accountService;
     Response res = new Response();
 
-    @GetMapping("/")
+    @GetMapping
     public Response showList(){
         Iterable<AccountEntity> list = accountService.findAll();
         res.setData( list);
@@ -31,7 +31,7 @@ public class RestAccountController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping
     public Response create(@RequestBody AccountEntity a){
         a.setRole(10002);
         a.setStatusAccount(10002);
@@ -44,8 +44,8 @@ public class RestAccountController {
     }
 
     @PutMapping("/{id}")
-    public Response update(@PathVariable int id){
-        res.setData(accountService.findById(id));
+    public Response update(@RequestBody AccountEntity a ){
+        res.setData(accountService.save(a));
         res.setStatus(ResponseStatus.SUCCESS) ;
         res.setMessage("Success");
         return res;
@@ -70,6 +70,14 @@ public class RestAccountController {
         }else {
             res.setStatus(ResponseStatus.ERROR);
         }
+        return res;
+    }
+
+    @GetMapping("/find")
+    public Response find(@RequestParam int id){
+        res.setData(accountService.findById(id));
+        res.setStatus(ResponseStatus.SUCCESS);
+        res.setMessage("Success");
         return res;
     }
 }

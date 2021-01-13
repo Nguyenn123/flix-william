@@ -9,16 +9,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet"> 
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="css/nouislider.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/plyr.css">
-	<link rel="stylesheet" href="css/photoswipe.css">
-	<link rel="stylesheet" href="css/default-skin.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="/frontend/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="/frontend/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/frontend/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/frontend/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="/frontend/css/nouislider.min.css">
+	<link rel="stylesheet" href="/frontend/css/ionicons.min.css">
+	<link rel="stylesheet" href="/frontend/css/plyr.css">
+	<link rel="stylesheet" href="/frontend/css/photoswipe.css">
+	<link rel="stylesheet" href="/frontend/css/default-skin.css">
+	<link rel="stylesheet" href="/frontend/css/main.css">
+
+
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
@@ -35,7 +37,7 @@
 </head>
 <body class="body">
 
-	<div class="sign section--bg" data-bg="img/section/section.jpg">
+	<div class="sign section--bg" data-bg="/frontend/img/section/section.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -43,7 +45,7 @@
 						<!-- authorization form -->
 						<form action="#" class="sign__form">
 							<a href="index.html" class="sign__logo">
-								<img src="img/logo.svg" alt="">
+								<img src="/frontend/img/logo.svg" alt="">
 							</a>
 
 							<div class="sign__group">
@@ -61,7 +63,7 @@
 							
 							<button class="sign__btn" type="submit" onclick="login()">Sign in</button>
 
-							<span class="sign__text">Don't have an account? <a href="signup.html">Sign up!</a></span>
+							<span class="sign__text">Don't have an account? <a href="login/signup">Sign up!</a></span>
 
 							<span class="sign__text"><a href="#">Forgot password?</a></span>
 						</form>
@@ -73,18 +75,18 @@
 	</div>
 
 	<!-- JS -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.min.js"></script>
-	<script src="js/wNumb.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/plyr.min.js"></script>
-	<script src="js/jquery.morelines.min.js"></script>
-	<script src="js/photoswipe.min.js"></script>
-	<script src="js/photoswipe-ui-default.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="/frontend/js/jquery-3.3.1.min.js"></script>
+	<script src="/frontend/js/bootstrap.bundle.min.js"></script>
+	<script src="/frontend/js/owl.carousel.min.js"></script>
+	<script src="/frontend/js/jquery.mousewheel.min.js"></script>
+	<script src="/frontend/js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="/frontend/js/wNumb.js"></script>
+	<script src="/frontend/js/nouislider.min.js"></script>
+	<script src="/frontend/js/plyr.min.js"></script>
+	<script src="/frontend/js/jquery.morelines.min.js"></script>
+	<script src="/frontend/js/photoswipe.min.js"></script>
+	<script src="/frontend/js/photoswipe-ui-default.min.js"></script>
+	<script src="/frontend/js/main.js"></script>
 </body>
 <script>
 	function login() {
@@ -104,9 +106,11 @@
 			url:"http://localhost:8080/home/login/check",
 			success:function (res){
 				if (res.status == 1){
+
 					alert("Dang nhap thanh cong!");
+					window.location.href = "/";
 				}else {
-					alert("tach tach");
+					window.location.href="/login";
 				}
 			},
 			error:function (){

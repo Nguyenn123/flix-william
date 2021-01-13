@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from dmitryvolkov.me/demo/flixgo2.0/admin/edit-user.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jan 2021 02:59:57 GMT -->
 <head>
@@ -197,7 +197,7 @@
 							<div class="row">
 								<!-- details form -->
 								<div class="col-12 col-lg-6">
-									<form action="#" class="profile__form">
+									<form action="#" class="profile__form" th:object="user">
 										<div class="row">
 											<div class="col-12">
 												<h4 class="profile__title">Profile details</h4>
@@ -205,36 +205,37 @@
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="username">Username</label>
-													<input id="username" type="text" name="username" class="profile__input" placeholder="User 123">
+													<label class="profile__label">ID</label>
+													<input  type="text"  class="profile__input" th:field="*{id}">
 												</div>
 											</div>
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="email">Email</label>
-													<input id="email" type="text" name="email" class="profile__input" placeholder="email@email.com">
+													<label class="profile__label" >Email</label>
+													<input  type="text"  class="profile__input" th:field="*{email}">
 												</div>
 											</div>
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="firstname">First Name</label>
-													<input id="firstname" type="text" name="firstname" class="profile__input" placeholder="John">
+													<label class="profile__label" >User Name</label>
+													<input  type="text"  class="profile__input" th:field="*{username}">
 												</div>
 											</div>
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="lastname">Last Name</label>
-													<input id="lastname" type="text" name="lastname" class="profile__input" placeholder="Doe">
+													<label class="profile__label">Phone Number</label>
+													<input  type="text" class="profile__input" th:field="*{phoneNumber}">
 												</div>
 											</div>
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="subscription">Subscription</label>
+													<label class="profile__label" for="subscription">Status Member</label>
 													<select class="js-example-basic-single" id="subscription">
+
 														<option value="Basic">Basic</option>
 														<option value="Premium">Premium</option>
 														<option value="Cinematic">Cinematic</option>
@@ -244,7 +245,7 @@
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="rights">Rights</label>
+													<label class="profile__label" for="rights">Role</label>
 													<select class="js-example-basic-single" id="rights">
 														<option value="User">User</option>
 														<option value="Moderator">Moderator</option>
@@ -271,8 +272,8 @@
 
 											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 												<div class="profile__group">
-													<label class="profile__label" for="oldpass">Old Password</label>
-													<input id="oldpass" type="password" name="oldpass" class="profile__input">
+													<label class="profile__label" >Old Password</label>
+													<input  type="password" th:field="*{password}" class="profile__input">
 												</div>
 											</div>
 
@@ -686,7 +687,7 @@
 												<div class="main__table-text">12 / 7</div>
 											</td>
 											<td>
-												<div class="main__table-text">24 Oct 2019</div>
+												<div class="main__table-text" >24 Oct 2019</div>
 											</td>
 											<td>
 												<div class="main__table-btns">

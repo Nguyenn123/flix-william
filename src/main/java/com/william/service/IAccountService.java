@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface IAccountService {
     AccountEntity save(AccountEntity accountEntity);
-    Optional findById(int id);
+    Optional<AccountEntity> findById(int id);
     Iterable<AccountEntity> findAll();
     boolean remove(int id);
     boolean existsAccountEntitiesByUsernameAndPassword(String username,String password);
