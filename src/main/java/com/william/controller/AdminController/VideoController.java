@@ -65,7 +65,7 @@ public class VideoController {
         }
         product1.setImgVideo(imgVideo);
         product1.setAccountId(videoForm.getAccountId());
-        product1.setCategoryId(videoForm.getAccountId());
+        product1.setCategoryId(videoForm.getCategoryId());
         product1.setDescription(videoForm.getDescription());
         product1.setTitle(videoForm.getTitle());
         product1.setVideoEmbed(fileVideo);

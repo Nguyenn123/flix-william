@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="backend/css/select2.min.css">
 	<link rel="stylesheet" href="backend/css/ionicons.min.css">
 	<link rel="stylesheet" href="backend/css/admin.css">
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
 	<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
@@ -173,7 +173,7 @@
 
 									<div class="col-12 col-sm-6 col-lg-3">
 										<select class="js-example-basic-single" name="categoryId" id="Category">
-											<option value="10001">10001</option>
+											<option disabled selected="selected">Category</option>
 
 										</select>
 									</div>
@@ -241,7 +241,7 @@
 
 									<div class="col-12 col-sm-6 col-lg-3">
 										<select class="js-example-basic-single" name="statusVideo" id="StatusVideo">
-											<option value="10001">10001</option>
+											<option disabled selected="selected">Status Video</option>
 
 										</select>
 									</div>
@@ -433,6 +433,10 @@
 	<script src="backend/js/select2.min.js"></script>
 	<script src="backend/js/admin.js"></script>
 	<script>
+		$( document ).ready(function() {
+			loadCategory();
+			loadStatusVideo();
+		});
 		//form Submit
 		$("form").submit(function (evt) {
 			evt.preventDefault();
@@ -447,11 +451,53 @@
 				enctype: 'multipart/form-data',
 				processData: false,
 				success: function (response) {
-					alert(response);
+					Swal.fire({
+						position: 'center',
+						icon: 'success',
+						title: 'Your work has been saved',
+						showConfirmButton: false,
+						timer: 1500
+					})
+					$( 'form' ).each(function(){
+						this.reset();
+					});
+					$('#form__img').attr("src","")
+					$('#movie12').text("Upload Trailer Video");
+					$('#movie1').text("Upload Video");
 				}
 			});
 			return false;
 		});
+
+
+		function loadCategory(){
+			$.ajax({
+				type: "Get",
+				url: "/category",
+				success: function (resp) {
+					$.each(resp.data, function (index, category) {
+						$("#Category").append(`<option value="`+category.id+`">`+category.nameCategory+`</option>`)
+					});
+				},
+				error: function () {
+
+				}
+			});
+		}
+		function loadStatusVideo(){
+			$.ajax({
+				type: "Get",
+				url: "/api/statusvideo",
+				success: function (resp) {
+					$.each(resp.data, function (index, statusvideo) {
+						$("#StatusVideo").append(`<option value="`+statusvideo.id+`">`+statusvideo.name+`</option>`)
+					});
+				},
+				error: function () {
+
+				}
+			});
+		}
 
 	</script>
 </body>
