@@ -7,6 +7,8 @@ import com.william.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,6 +27,7 @@ public class RAdminVideoController {
         response.setMessage("SUCCESS");
         return response;
     }
+
     @GetMapping
     public Response allVideos() {
         Iterable<VideosEntity> videosEntities = videoService.findAll();
@@ -33,6 +36,7 @@ public class RAdminVideoController {
         response.setMessage("SUCCESS");
         return response;
     }
+
     @DeleteMapping
     public Response deleteVideo(@RequestParam(name = "idVideo") int id) {
         videoService.deleteById(id);
@@ -41,16 +45,35 @@ public class RAdminVideoController {
         response.setMessage("SUCCESS");
         return response;
     }
+
     @GetMapping("/find")
     public Response findVideo(@RequestParam(name = "idVideo") int id) {
-        VideosEntity videosEntity = (VideosEntity) videoService.findById(id);
-        if (videosEntity == null){
+        Optional<VideosEntity> videosEntity = (Optional<VideosEntity>) videoService.findById(id);
+        if (videosEntity == null) {
             response.setData(null);
             response.setStatus(ResponseStatus.ERROR);
             response.setMessage("ERROR");
             return response;
         }
         response.setData(videosEntity);
+        response.setStatus(ResponseStatus.SUCCESS);
+        response.setMessage("SUCCESS");
+        return response;
+    }
+
+    @GetMapping("/findByCategory/{id}")
+    public Response allVideosByCategory(@PathVariable(required = false) int id) {
+        List<VideosEntity> videosEntities = new ArrayList<>();
+        if (id == 0) {
+            videosEntities = (List<VideosEntity>) videoService.findAll();
+        } else {
+            for (VideosEntity videosEntity : videoService.findAll()) {
+                if (videosEntity.getCategoryId() == id) {
+                    videosEntities.add(videosEntity);
+                }
+            }
+        }
+        response.setData(videosEntities);
         response.setStatus(ResponseStatus.SUCCESS);
         response.setMessage("SUCCESS");
         return response;
