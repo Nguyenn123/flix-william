@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/home/login")
+@RequestMapping("/api/account")
 public class RestAccountController {
 
     @Autowired
@@ -74,7 +74,7 @@ public class RestAccountController {
     }
 
     @GetMapping("/find")
-    public Response find(@RequestParam int id){
+    public Response find(@RequestParam("id") int id){
         res.setData(accountService.findById(id));
         res.setStatus(ResponseStatus.SUCCESS);
         res.setMessage("Success");
