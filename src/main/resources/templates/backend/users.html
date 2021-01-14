@@ -66,7 +66,7 @@
 
 			<div class="sidebar__user-title">
 				<span>Admin</span>
-				<p>John Doe</p>
+				<div id="sessionname"></div>
 			</div>
 
 			<button class="sidebar__user-btn" type="button">
@@ -127,10 +127,12 @@
 				<!-- main title -->
 				<div class="col-12">
 					<div class="main__title">
-						<h2>Usersssssssss</h2>
+						<h2>Users</h2>
 
 						<span class="main__title-stat">3,702 Total</span>
-
+						<div class="col-3">
+							<button class="profile__btn" id="createUser" type="button">Create</button>
+						</div>
 						<div class="main__title-wrap">
 							<!-- filter sort -->
 							<div class="filter" id="filter__sort">
@@ -180,57 +182,7 @@
 									<th>ACTIONS</th>
 								</tr>
 							</thead>
-
-							<tbody id="dataTable">
-<!--								<tr>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">23</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__user">-->
-<!--											<div class="main__avatar">-->
-<!--												<img src="img/user.svg" alt="">-->
-<!--											</div>-->
-<!--											<div class="main__meta">-->
-<!--												<h3>John Doe</h3>-->
-<!--												<span>email@email.com</span>-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">Username</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">Premium</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">13</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">1</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text main__table-text&#45;&#45;green">Approved</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-text">24 Oct 2019</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<div class="main__table-btns">-->
-<!--											<a href="#modal-status" class="main__table-btn main__table-btn&#45;&#45;banned open-modal">-->
-<!--												<i class="icon ion-ios-lock"></i>-->
-<!--											</a>-->
-<!--											<a href="edit-user.html" class="main__table-btn main__table-btn&#45;&#45;edit">-->
-<!--												<i class="icon ion-ios-create"></i>-->
-<!--											</a>-->
-<!--											<a href="#modal-delete" class="main__table-btn main__table-btn&#45;&#45;delete open-modal">-->
-<!--												<i class="icon ion-ios-trash"></i>-->
-<!--											</a>-->
-<!--										</div>-->
-<!--									</td>-->
-<!--								</tr>-->
-
-							</tbody>
+							<tbody id="dataTable"></tbody>
 						</table>
 					</div>
 				</div>
@@ -267,7 +219,7 @@
 				<!-- main title -->
 				<div class="col-12">
 					<div class="main__title">
-						<h2>Category Edit</h2>
+						<h2 id="title"></h2>
 					</div>
 				</div>
 				<!-- end main title -->
@@ -279,8 +231,8 @@
 
 						<!-- or red -->
 						<div class="profile__meta profile__meta--green">
-							<h3>Category name <span>(Approved)</span></h3>
-							<span>Category ID: 23562</span>
+							<h3 id="titel"><span>(Approved)</span></h3>
+							<span id="iduser"></span>
 						</div>
 					</div>
 					<!-- end profile user -->
@@ -322,7 +274,7 @@
 								<form action="#" class="profile__form">
 									<div class="row">
 										<div class="col-12">
-											<h4 class="profile__title">Category details</h4>
+											<h4 class="profile__title">User details</h4>
 										</div>
 										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 											<div class="profile__group">
@@ -351,46 +303,6 @@
 											</div>
 										</div>
 
-
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="statusmember">STATUS MEMBER</label>
-												<select class="js-example-basic-single" id="statusmember">
-													<option value="Basic">Basic</option>
-													<option value="Premium">Premium</option>
-													<option value="Cinematic">Cinematic</option>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-											<div class="profile__group">
-												<label class="profile__label" for="role">ROLE</label>
-												<select class="js-example-basic-single" id="role">
-													<option value="User">User</option>
-													<option value="Moderator">Moderator</option>
-													<option value="Admin">Admin</option>
-												</select>
-											</div>
-										</div>
-
-										<div class="col-12">
-											<button class="profile__btn" id="summitCategory" type="button">Save</button>
-										</div>
-									</div>
-								</form>
-							</div>
-							<!-- end details form -->
-
-							<!-- password form -->
-							<div class="col-12 col-lg-6">
-								<form action="#" class="profile__form">
-									<div class="row">
-										<div class="col-12">
-											<h4 class="profile__title">Change password</h4>
-										</div>
-
 										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 											<div class="profile__group">
 												<label class="profile__label" for="oldpass">Old Password</label>
@@ -398,26 +310,80 @@
 											</div>
 										</div>
 
+
 										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 											<div class="profile__group">
-												<label class="profile__label" for="newpass">New Password</label>
-												<input id="newpass" type="password" name="newpass" class="profile__input">
+												<label class="profile__label" >STATUS MEMBER</label>
+                                                <select class="js-example-basic-single" id="statusmember">
+                                                    <option id="statusmemberDefault"></option>
+
+                                                </select>
 											</div>
 										</div>
 
 										<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 											<div class="profile__group">
-												<label class="profile__label" for="confirmpass">Confirm New Password</label>
-												<input id="confirmpass" type="password" name="confirmpass" class="profile__input">
+												<label class="profile__label" for="role">ROLE</label>
+												<select class="js-example-basic-single" id="role">
+                                                    <option id="roleDefault"></option>
+												</select>
+											</div>
+										</div>
+
+                                        <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+											<div class="profile__group">
+												<label class="profile__label" for="statusaccount">STATUUS ACCOUNT</label>
+												<select class="js-example-basic-single"  id="statusaccount">
+                                                    <option id="statusaccountDefault"></option>
+                                                    <option value="10002">LOCK</option>
+                                                    <option value="10001">UNLOCK</option>
+												</select>
 											</div>
 										</div>
 
 										<div class="col-12">
-											<button class="profile__btn" type="button">Change</button>
+											<button class="profile__btn" id="updateUser" type="button">Save</button>
 										</div>
 									</div>
 								</form>
 							</div>
+							<!-- end details form -->
+
+							<!-- password form -->
+<!--							<div class="col-12 col-lg-6">-->
+<!--								<form action="#" class="profile__form">-->
+<!--									<div class="row">-->
+<!--										<div class="col-12">-->
+<!--											<h4 class="profile__title">Change password</h4>-->
+<!--										</div>-->
+
+<!--										<div class="col-12 col-md-6 col-lg-12 col-xl-6">-->
+<!--											<div class="profile__group">-->
+<!--												<label class="profile__label" for="oldpass">Old Password</label>-->
+<!--												<input id="oldpass" type="password" name="oldpass" class="profile__input">-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="col-12 col-md-6 col-lg-12 col-xl-6">-->
+<!--											<div class="profile__group">-->
+<!--												<label class="profile__label" for="newpass">New Password</label>-->
+<!--												<input id="newpass" type="password" name="newpass" class="profile__input">-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="col-12 col-md-6 col-lg-12 col-xl-6">-->
+<!--											<div class="profile__group">-->
+<!--												<label class="profile__label" for="confirmpass">Confirm New Password</label>-->
+<!--												<input id="confirmpass" type="password" name="confirmpass" class="profile__input">-->
+<!--											</div>-->
+<!--										</div>-->
+
+<!--										<div class="col-12">-->
+<!--											<button class="profile__btn" type="button">Change</button>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</form>-->
+<!--							</div>-->
 							<!-- end password form -->
 						</div>
 					</div>
@@ -440,10 +406,12 @@
 	$(document).ready(showList());
 	function showList() {
 		document.getElementById("dataTable").innerHTML="";
+
 		$.ajax({
 			type: "GET",
 			url: "http://localhost:8080/home/login",
 			success: function (account) {
+				document.getElementById("sessionname").innerHTML=`<p>ddm</p> `
 				$.each(account.data, function (index, item) {
 					$('<tr>').append(
 							$('<td>').append($('<div class="main__table-text">').text(item.id)),
@@ -457,7 +425,7 @@
 							$('<td>').append($('<div class="main__table-text">').text(item.createTime)),
 							$('<td>').append(
 									$('<div class="main__table-btns">').append(
-										$('<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">').append($('<i class="icon ion-ios-lock">')),
+										// $('<a href="#modal-status" class="main__table-btn main__table-btn--banned open-modal">').append($('<i class="icon ion-ios-lock">')),
 										$('<button class="main__table-btn main__table-btn--edit" onclick="showEdit('+item.id+')">').append($('<i class="icon ion-ios-create">')),
 										$('<button type="button" onclick="remove('+item.id+')" class="main__table-btn main__table-btn--delete">').append($('<i class="icon ion-ios-trash">')),
 									)
@@ -500,7 +468,7 @@
 	function showEdit(id) {
 		showEditPage.classList.remove("myHidden");
 		showUserPage.classList.add("myHidden");
-
+		$("#title").append("User Edit")
 		$.ajax({
 			headers: {
 				'Accept': 'application/json',
@@ -509,11 +477,31 @@
 			type: "GET",
 			url: "http://localhost:8080/home/login/find?id=" + id,
 			success: function (res) {
+			    console.log(res)
 				$('#id').val(res.data.id)
 				$('#username').val(res.data.username)
 				$('#email').val(res.data.email)
 				$('#phonenumber').val(res.data.phoneNumber)
-			},
+				$('#oldpass').val(res.data.password)
+                $('#statusmemberDefault').val(res.data.statusMember)
+                $('#statusmemberDefault').text(res.data.statusMember)
+                $('#statusaccountDefault').val(res.data.statusAccount)
+                $('#statusaccountDefault').text(res.data.statusAccount)
+                $('#roleDefault').val(res.data.role)
+                $('#roleDefault').text(res.data.role)
+                console.log(res.data)
+                // let option1 = document.createElement("option");
+				// $('#statusmember').empty();
+				// option1.value = "1004";
+				// option1.text = "VIp 1";
+				// let optionResponse = document.createElement("option");
+				// optionResponse.text = "VIpppp";
+				// optionResponse.value = res.data.statusMember;
+				// $('#statusmember').append(option1, optionResponse);
+                $('#titel').text(res.data.username)
+                $("#iduser").text("ID USER"+" "+res.data.id)
+
+            },
 			error: function () {
 			}
 		});
@@ -524,15 +512,20 @@
 		var account = {}
 		var linkUrl = "";
 		var methodName = "";
-		// $('#createCategory').click(function () {
-		// 	categoryPage.classList.add('myHidden')
-		// 	categorySave.classList.remove('myHidden')
-		// 	$('#idCategory').val("")
-		// })
-		$('#summitCategory').click(function () {
+		$('#createUser').click(function () {
+			showUserPage.classList.add('myHidden')
+			showEditPage.classList.remove('myHidden')
+            $("#title").append("Create new user")
+			$('#id').val("")
+		})
+		$('#updateUser').click(function () {
 			account.username = $("#username").val()
 			account.email = $("#email").val()
 			account.phoneNumber = $("#phonenumber").val()
+			account.password = $("#oldpass").val()
+            account.role = $('#role').val()
+            account.statusMember = $('#statusmember').val()
+            account.statusAccount = $('#statusaccount').val()
 			var id = $("#id").val()
 			if (id) {
 				linkUrl = "http://localhost:8080/home/login/"+id
@@ -543,7 +536,6 @@
 				methodName = "POST"
 				linkUrl = "http://localhost:8080/home/login"
 			}
-account.password=1255;
 			var productObj = JSON.stringify(account)
 			console.log(account)
 			$.ajax({
@@ -561,6 +553,41 @@ account.password=1255;
 			})
 		})
 	})
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/api/statusmember',
+
+            success: function (response) {
+                console.log(response.data),
+                    $.each(response.data, function (index, item) {
+                        $('<option  value="'+item.id+'">').text(item.nameStatusMember).appendTo('#statusmember')
+                    })
+            ;
+            }
+        });
+    })
+
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/api/roles',
+
+            success: function (response) {
+                console.log(response.data),
+                    $.each(response.data, function (index, item) {
+                        $('<option value= "'+item.id+'">').text(item.nameRole).appendTo('#role')
+                    })
+                ;
+            }
+        });
+    })
+
+
 </script>
 <!-- Mirrored from dmitryvolkov.me/demo/flixgo2.0/admin/users.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Jan 2021 02:59:57 GMT -->
 </html>

@@ -11,17 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("admin/user")
 public class UserController {
-    @Autowired
-    private IAccountService accountService;
-
 
     @GetMapping()
     public String show(){
         return "/backend/users";
     }
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable int id, Model model) {
-        model.addAttribute("user", accountService.findById(id));
-        return "/backend/edit-user";
-    }
+
 }

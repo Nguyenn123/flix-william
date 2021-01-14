@@ -22,13 +22,4 @@ public class LoginController {
         return "/frontend/signup";
     }
 
-    @ModelAttribute("loginentity")
-    public LoginEntity setLoginEntity(){
-//        if(!model.containsAttribute("loginentity")) {
-//            model.addAttribute("loginentity", new LoginEntity());
-//        }
-        return new LoginEntity();
-    }
-
-
 }

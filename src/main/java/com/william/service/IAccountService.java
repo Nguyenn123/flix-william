@@ -10,5 +10,5 @@ public interface IAccountService {
     Iterable<AccountEntity> findAll();
     boolean remove(int id);
     boolean existsAccountEntitiesByUsernameAndPassword(String username,String password);
-    Optional findByUsername(String username);
+    Optional<AccountEntity> findByUsername(String username);
 }
