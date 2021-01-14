@@ -8,6 +8,8 @@ import com.william.service.ICommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +30,7 @@ public class RestCommentController {
     }
     @PostMapping
     public Response addComment(@RequestBody CommentEntity commentEntity){
+        commentEntity.setCreatetime(Timestamp.valueOf(LocalDateTime.now()));
         commentService.save(commentEntity);
         response.setStatus(ResponseStatus.SUCCESS);
         response.setData(commentEntity);

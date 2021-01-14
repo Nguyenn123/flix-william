@@ -431,7 +431,7 @@
                                     <form action="#" class="form">
                                         <textarea id="text" name="text" class="form__textarea"
                                                   placeholder="Add comment"></textarea>
-                                        <button type="button" class="form__btn">Send</button>
+                                        <button type="button" onclick="addComment()" class="form__btn">Send</button>
                                     </form>
                                 </div>
                             </div>
@@ -875,15 +875,35 @@
     });
 
 
-    function getAccount(accountId) {
+    function addComment() {
+        let commentText = document.getElementById('text').value;
+        let accountId = 10002;
 
+        let obj = {
+            "accountid" : accountId,
+            "videoid" : idVideo,
+            "commentText" : commentText
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: "/api/comment",
+            data: JSON.stringify(obj),
+            success:function (resp) {
+                getListComment();
+                $('#text').val('');
+            }
+        })
     }
 
 
     function getListComment() {
         document.getElementById("commentList").innerHTML = "";
         $.ajax({
-            type: "GET",
+            type: "PATCH",
             url: "/api/comment?idVideo=" + idVideo,
             success: function (resp) {
                 $.each(resp.data, function (index, comment) {
