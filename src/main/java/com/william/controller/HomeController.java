@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
     @Autowired
@@ -19,8 +21,9 @@ public class HomeController {
     private IVideoService videoService;
 
     @RequestMapping("/")
-    public ModelAndView home(){
+    public ModelAndView home(HttpSession session){
         ModelAndView modelAndView = new ModelAndView("/frontend/index");
+//        session.setAttribute("userLogged",null);
         return modelAndView;
     }
 

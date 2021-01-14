@@ -103,8 +103,9 @@
 			},
 			data:JSON.stringify(l),
 			type:"POST",
-			url:"/home/login/check",
+			url:"/api/account/check",
 			success:function (res){
+				debugger
 				if (res.status == 1){
 					alert("Dang nhap thanh cong!");
 					window.location.href = "/";
