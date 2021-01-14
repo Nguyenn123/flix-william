@@ -66,14 +66,9 @@ public class RestAccountController {
     @PostMapping("/check")
     public Response checkLogin(@RequestBody LoginEntity l, HttpSession session){
         if (accountService.existsAccountEntitiesByUsernameAndPassword(l.getUsername(), l.getPassword())) {
-            Optional<AccountEntity> abc = accountService.findByUsername(l.getUsername());
-//            session.setAttribute("username",l.getUsername());
-//            session.setAttribute("role",abc.get().getRole());
-//            session.setAttribute("statusmember",abc.get().getStatusMember());
-//            session.setAttribute("statusaccount",abc.get().getStatusAccount());
-            session.setAttribute("userLogged",abc);
-
-            res.setData(abc);
+            Optional<AccountEntity> checkLogin = accountService.findByUsername(l.getUsername());
+            session.setAttribute("userLogged",checkLogin);
+            res.setData(checkLogin);
             res.setStatus(ResponseStatus.SUCCESS);
             res.setMessage("Success");
 

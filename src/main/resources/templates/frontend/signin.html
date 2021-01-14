@@ -94,7 +94,7 @@
 		let password = $('#password').val();
 		let l = {
 			"username":username,
-			"password":password
+			"password":password,
 		}
 		$.ajax({
 			headers:{
@@ -103,10 +103,9 @@
 			},
 			data:JSON.stringify(l),
 			type:"POST",
-			url:"http://localhost:8080/home/login/check",
+			url:"/home/login/check",
 			success:function (res){
 				if (res.status == 1){
-
 					alert("Dang nhap thanh cong!");
 					window.location.href = "/";
 				}else {

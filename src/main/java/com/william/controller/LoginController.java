@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/login")
-@SessionAttributes("loginentity")
 public class LoginController {
 
     @GetMapping("")
