@@ -17,12 +17,14 @@ public class AccountEntity {
     private Integer statusMember;
     private Timestamp createTime;
 
-
-    public AccountEntity(String username, String password, String email, Integer phoneNumber) {
+    public AccountEntity(String username, String password, String email, Integer phoneNumber, Integer role, Integer statusAccount, Integer statusMember) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.role = role;
+        this.statusAccount = statusAccount;
+        this.statusMember = statusMember;
     }
 
     public AccountEntity() {
@@ -85,7 +87,7 @@ public class AccountEntity {
     }
 
     public void setRole(Integer role) {
-        this.role = 10002;
+        this.role = role;
     }
 
     @Basic

@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/statusmember")
+@CrossOrigin("*")
 public class RAdminStatusMemberController {
     @Autowired
     private IStatusMemberService statusMemberService;

@@ -41,9 +41,9 @@
 				<div class="col-12">
 					<div class="sign__content">
 						<!-- registration form -->
-						<form action="#" class="sign__form">
-							<a href="index.html" class="sign__logo">
-								<img src="img/logo.svg" alt="">
+						<div class="sign__form">
+							<a href="/" class="sign__logo">
+								<img src="/frontend/img/logo.svg" alt="">
 							</a>
 
 							<div class="sign__group">
@@ -59,7 +59,7 @@
 							</div>
 
 							<div class="sign__group">
-								<input type="number" class="sign__input" placeholder="Phone Number" id="phone_number">
+								<input type="text" class="sign__input" placeholder="Phone Number" id="phonenumber">
 							</div>
 
 							<div class="sign__group sign__group--checkbox">
@@ -67,10 +67,10 @@
 								<label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
 							</div>
 							
-							<button class="sign__btn" type="submit" onclick="signup()">Sign up</button>
+							<button class="sign__btn" onclick="signup()">Sign up</button>
 
 							<span class="sign__text">Already have an account? <a href="/login">Sign in!</a></span>
-						</form>
+						</div>
 						<!-- registration form -->
 					</div>
 				</div>
@@ -97,12 +97,12 @@
 		let username = $('#username').val();
 		let password = $('#password').val();
 		let email = $('#email').val();
-		let phone_number = $('#phone_number').val();
+		let phoneNumber = $('#phonenumber').val();
 		let a = {
 			"username":username,
 			"password":password,
 			"email":email,
-			"phone_number":phone_number
+			"phoneNumber":phoneNumber
 		}
 		$.ajax({
 			headers:{
@@ -112,16 +112,19 @@
 			data:JSON.stringify(a),
 			type:"POST",
 			url:"http://localhost:8080/home/login/",
-
 			success:function (res){
-				alert("Dang ky thanh cong!")
-
-				 $('#username').val('');
-				 $('#password').val('');
-				 $('#email').val('');
-				 $('#phone_number').val('');
+				if (res.status==1){
+					debugger
+					alert("Dang ky thanh cong!")
+					 $('#username').val('');
+					 $('#password').val('');
+					$('#email').val('');
+					 $('#phonenumber').val('');
+				}
 			},
 			error:function (){
+				alert("ngu"
+				)
 			}
 		})
 	}

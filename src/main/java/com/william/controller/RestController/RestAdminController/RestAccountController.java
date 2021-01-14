@@ -9,8 +9,12 @@ import com.william.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
@@ -22,20 +26,19 @@ public class RestAccountController {
     Response res = new Response();
 
     @GetMapping
-    public Response showList(){
-        Iterable<AccountEntity> list = accountService.findAll();
-        res.setData( list);
-        res.setStatus(ResponseStatus.SUCCESS) ;
-        res.setMessage("Success");
-        return res;
-    }
+    public Response showList(HttpSession session) {
 
+            Iterable<AccountEntity> list = accountService.findAll();
+
+            res.setData(list);
+            res.setStatus(ResponseStatus.SUCCESS);
+            res.setMessage("Success");
+            return res;
+
+    }
 
     @PostMapping
     public Response create(@RequestBody AccountEntity a){
-        a.setRole(10002);
-        a.setStatusAccount(10002);
-        a.setStatusMember(10001);
         a.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
         res.setData( accountService.save(a));
         res.setStatus(ResponseStatus.SUCCESS) ;
@@ -61,9 +64,16 @@ public class RestAccountController {
     }
 
     @PostMapping("/check")
-    public Response checkLogin(@RequestBody LoginEntity l){
+    public Response checkLogin(@RequestBody LoginEntity l, HttpSession session){
         if (accountService.existsAccountEntitiesByUsernameAndPassword(l.getUsername(), l.getPassword())) {
-            res.setData(accountService.findByUsername(l.getUsername()));
+            Optional<AccountEntity> abc = accountService.findByUsername(l.getUsername());
+//            session.setAttribute("username",l.getUsername());
+//            session.setAttribute("role",abc.get().getRole());
+//            session.setAttribute("statusmember",abc.get().getStatusMember());
+//            session.setAttribute("statusaccount",abc.get().getStatusAccount());
+            session.setAttribute("userLogged",abc);
+
+            res.setData(abc);
             res.setStatus(ResponseStatus.SUCCESS);
             res.setMessage("Success");
 
@@ -78,6 +88,18 @@ public class RestAccountController {
         res.setData(accountService.findById(id));
         res.setStatus(ResponseStatus.SUCCESS);
         res.setMessage("Success");
+        return res;
+    }
+
+    @GetMapping("/ss")
+    public  Response showSession(HttpSession session){
+        if (session.getAttribute("username")!=null){
+            res.setData(session);
+            res.setStatus(ResponseStatus.SUCCESS);
+            res.setMessage("Success");
+        }else {
+            res.setStatus(ResponseStatus.ERROR);
+        }
         return res;
     }
 }
