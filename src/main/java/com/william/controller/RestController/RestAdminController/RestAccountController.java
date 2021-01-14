@@ -39,6 +39,9 @@ public class RestAccountController {
 
     @PostMapping
     public Response create(@RequestBody AccountEntity a){
+        a.setRole(10002);
+        a.setStatusAccount(10001);
+        a.setStatusMember(10001);
         a.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
         res.setData( accountService.save(a));
         res.setStatus(ResponseStatus.SUCCESS) ;

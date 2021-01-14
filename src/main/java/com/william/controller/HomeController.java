@@ -1,5 +1,6 @@
 package com.william.controller;
 
+import com.william.entity.AccountEntity;
 import com.william.service.CategoryService;
 import com.william.service.ICategoryService;
 import com.william.service.IVideoService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -23,7 +25,11 @@ public class HomeController {
     @RequestMapping("/")
     public ModelAndView home(HttpSession session){
         ModelAndView modelAndView = new ModelAndView("/frontend/index");
-//        session.setAttribute("userLogged",null);
+        Optional<AccountEntity> user = (Optional<AccountEntity>) session.getAttribute("userLogged");
+        if(user == null){
+            return modelAndView;
+        }
+        modelAndView.addObject("user", user.get());
         return modelAndView;
     }
 
