@@ -258,7 +258,7 @@
     function showCategory() {
         $.ajax({
             type: "GET",
-            url: URL_API + "api/videos/videosnew",
+            url: URL_API + "api/videosHome/videosnew",
 
             success: function (responce) {
                 console.log(responce.data[1].imgVideo)
@@ -299,7 +299,7 @@
     //     document.getElementById("getAll").innerHTML = "";
     //     $.ajax({
     //         type: "GET",
-    //         url: URL_API+"api/videos",
+    //         url: URL_API+"api/videosHome",
     //         success: function (resp) {
     //             $.each(resp.data, function (index, video) {
     //                 $('<div class="col-lg-6">').append(
@@ -319,7 +319,7 @@
 
         $.ajax({
             type: "GET",
-            url: URL_API+"api/videos",
+            url: URL_API+"api/videosHome",
             success: function (resp) {
                 var abc = document.getElementById("getAll");
                 abc.innerHTML =``;

@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/category")
 @CrossOrigin("*")
-public class CategoryController {
+public class RCategoryControllerAmin {
 
     @Autowired
     private ICategoryService categoryService;
@@ -21,10 +21,6 @@ public class CategoryController {
     private IStatusService statusService;
     Response response = new Response();
 
-    @ModelAttribute("status")
-    public Iterable<StatusEntity> provinces() {
-        return statusService.findAll();
-    }
 
     @GetMapping()
     public Response findAllCategory() {
