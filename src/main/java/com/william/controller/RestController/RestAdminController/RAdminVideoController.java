@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/videos")
 public class RAdminVideoController {
     @Autowired
@@ -23,6 +24,18 @@ public class RAdminVideoController {
     public Response addNewVideo(@RequestBody VideosEntity videosEntity) {
         videoService.save(videosEntity);
         response.setData(videosEntity);
+        response.setStatus(ResponseStatus.SUCCESS);
+        response.setMessage("SUCCESS");
+        return response;
+    }
+    @GetMapping("/videosnew")
+    public Response videosNew() {
+        ArrayList<VideosEntity> videosEntities2 = (ArrayList<VideosEntity>) videoService.findAll();
+        ArrayList<VideosEntity> videosEntities = new ArrayList<>();
+        videosEntities.add(videosEntities2.get(0));
+        videosEntities.add(videosEntities2.get(1));
+        videosEntities.add(videosEntities2.get(2));
+        response.setData(videosEntities);
         response.setStatus(ResponseStatus.SUCCESS);
         response.setMessage("SUCCESS");
         return response;
