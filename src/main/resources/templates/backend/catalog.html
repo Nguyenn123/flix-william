@@ -557,38 +557,6 @@
 		});
 	}
 
-
-	// function edit() {
-	// 	let name = $('#nameEdit').val();
-	// 	let categoryId = $('#categoryIdEdit').val();
-	// 	let image = $('#imageEdit').val();
-	// 	let price = $('#priceEdit').val();
-	// 	let product = {
-	// 		"id" : idPost,
-	// 		"name": name,
-	// 		"categoryId": categoryId,
-	// 		"image": image,
-	// 		"price": price
-	// 	}
-	//
-	// 	$.ajax({
-	// 		headers: {
-	// 			'Accept': 'application/json',
-	// 			'Content-Type': 'application/json'
-	// 		},
-	// 		type: "POST",
-	// 		data: JSON.stringify(product),
-	// 		url: URL_API + "/products",
-	// 		success: function () {
-	// 			init();
-	// 		},
-	// 		error: function () {
-	// 			alert("delete fail");
-	// 		}
-	// 	});
-	//
-	// }
-
 	$("form").submit(function (evt) {
 		evt.preventDefault();
 		var formData = new FormData($(this)[0]);

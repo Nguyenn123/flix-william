@@ -55,7 +55,7 @@ public class RAdminVideoController {
             response.setMessage("ERROR");
             return response;
         }
-        response.setData(videosEntity);
+        response.setData(videosEntity.get());
         response.setStatus(ResponseStatus.SUCCESS);
         response.setMessage("SUCCESS");
         return response;
