@@ -868,11 +868,16 @@
 
 <script>
     let idVideo = document.getElementById('idVideo').value;
-    let dcm=[];
+    let dcm = "";
     // A $( document ).ready() block.
-    $( document ).ready(function() {
+    $(document).ready(function () {
         getListComment();
     });
+
+
+    function getAccount(accountId) {
+
+    }
 
 
     function getListComment() {
@@ -881,34 +886,28 @@
             type: "GET",
             url: "/api/comment?idVideo=" + idVideo,
             success: function (resp) {
-
                 $.each(resp.data, function (index, comment) {
-                        getAccount(comment.accountid);
-                        $('<li class="comments__item">').append(
-                        $('<div class="comments__autor">').append(
-                            $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
-                            $('<span class="comments__name">').text(),
-                            $('<span class="comments__time">').text(comment.createtime),
-                        ),
-                        $('<p class="comments__text">').text(comment.commentText),
-                    ).appendTo('#commentList');
-                    alert(dcm);
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/account/find?id=" + comment.accountid,
+                        success: function (resp) {
+                            dcm = resp.data.username;
+                            $('<li class="comments__item">').append(
+                                $('<div class="comments__autor">').append(
+                                    $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
+                                    $('<span class="comments__name">').text(dcm),
+                                    $('<span class="comments__time">').text(comment.createtime),
+                                ),
+                                $('<p class="comments__text">').text(comment.commentText),
+                            ).appendTo('#commentList');
+                        }
+                    })
                 });
             },
         })
     }
 
-    function getAccount(accountId) {
-        $.ajax({
-            type: "GET",
-            url: "/api/account/find?id=" + accountId,
-            success: function (resp) {
-                 dcm = resp.data;
-                alert(dcm);
-                return dcm;
-            }
-        })
-    }
+
 </script>
 </body>
 

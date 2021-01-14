@@ -9,16 +9,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet"> 
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="css/nouislider.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/plyr.css">
-	<link rel="stylesheet" href="css/photoswipe.css">
-	<link rel="stylesheet" href="css/default-skin.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="frontend/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="frontend/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="frontend/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="frontend/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="frontend/css/nouislider.min.css">
+	<link rel="stylesheet" href="frontend/css/ionicons.min.css">
+	<link rel="stylesheet" href="frontend/css/plyr.css">
+	<link rel="stylesheet" href="frontend/css/photoswipe.css">
+	<link rel="stylesheet" href="frontend/css/default-skin.css">
+	<link rel="stylesheet" href="frontend/css/main.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
@@ -26,7 +26,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Dmitry Volkov">
@@ -44,7 +44,7 @@
 						<div class="header__content">
 							<!-- header logo -->
 							<a href="index.html" class="header__logo">
-								<img src="img/logo.svg" alt="">
+								<img src="frontend/img/logo.svg" alt="">
 							</a>
 							<!-- end header logo -->
 
@@ -142,7 +142,7 @@
 	<!-- end header -->
 
 	<!-- page title -->
-	<section class="section section--first section--bg" data-bg="img/section/section.jpg">
+	<section class="section section--first section--bg" data-bg="frontend/img/section/section.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -190,7 +190,7 @@
 						<div class="price__item"><span>Limited Availability</span></div>
 						<div class="price__item"><span>Desktop Only</span></div>
 						<div class="price__item"><span>Limited Support</span></div>
-						<a href="#" class="price__btn">Choose Plan</a>
+						<a href="javascript:void(0)" class="price__btn" id="10001" onclick="Order($(this).attr('id'))">Choose Plan</a>
 					</div>
 				</div>
 				<!-- end price -->
@@ -204,7 +204,7 @@
 						<div class="price__item"><span>Lifetime Availability</span></div>
 						<div class="price__item"><span>TV & Desktop</span></div>
 						<div class="price__item"><span>24/7 Support</span></div>
-						<a href="#" class="price__btn">Choose Plan</a>
+						<a href="javascript:void(0)" class="price__btn" id="10002" onclick="Order($(this).attr('id'))">Choose Plan</a>
 					</div>
 				</div>
 				<!-- end price -->
@@ -218,7 +218,7 @@
 						<div class="price__item"><span>Lifetime Availability</span></div>
 						<div class="price__item"><span>Any Device</span></div>
 						<div class="price__item"><span>24/7 Support</span></div>
-						<a href="#" class="price__btn">Choose Plan</a>
+						<a href="javascript:void(0)" class="price__btn" id="10003" onclick="Order($(this).attr('id'))">Choose Plan</a>
 					</div>
 				</div>
 				<!-- end price -->
@@ -320,7 +320,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/themeforest-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/themeforest-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -328,7 +328,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/audiojungle-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/audiojungle-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -336,7 +336,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/codecanyon-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/codecanyon-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -344,7 +344,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/photodune-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/photodune-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -352,7 +352,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/activeden-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/activeden-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -360,7 +360,7 @@
 				<!-- partner -->
 				<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 					<a href="#" class="partner">
-						<img src="img/partners/3docean-light-background.png" alt="" class="partner__img">
+						<img src="frontend/img/partners/3docean-light-background.png" alt="" class="partner__img">
 					</a>
 				</div>
 				<!-- end partner -->
@@ -377,8 +377,8 @@
 				<div class="col-12 col-md-3">
 					<h6 class="footer__title">Download Our App</h6>
 					<ul class="footer__app">
-						<li><a href="#"><img src="img/Download_on_the_App_Store_Badge.svg" alt=""></a></li>
-						<li><a href="#"><img src="img/google-play-badge.png" alt=""></a></li>
+						<li><a href="#"><img src="frontend/img/Download_on_the_App_Store_Badge.svg" alt=""></a></li>
+						<li><a href="#"><img src="frontend/img/google-play-badge.png" alt=""></a></li>
 					</ul>
 				</div>
 				<!-- end footer list -->
@@ -439,18 +439,75 @@
 	<!-- end footer -->
 
 	<!-- JS -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.min.js"></script>
-	<script src="js/wNumb.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/plyr.min.js"></script>
-	<script src="js/jquery.morelines.min.js"></script>
-	<script src="js/photoswipe.min.js"></script>
-	<script src="js/photoswipe-ui-default.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="frontend/js/jquery-3.3.1.min.js"></script>
+	<script src="frontend/js/bootstrap.bundle.min.js"></script>
+	<script src="frontend/js/owl.carousel.min.js"></script>
+	<script src="frontend/js/jquery.mousewheel.min.js"></script>
+	<script src="frontend/js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="frontend/js/wNumb.js"></script>
+	<script src="frontend/js/nouislider.min.js"></script>
+	<script src="frontend//plyr.min.js"></script>
+	<script src="frontend/js/jquery.morelines.min.js"></script>
+	<script src="frontend/js/photoswipe.min.js"></script>
+	<script src="frontend/js/photoswipe-ui-default.min.js"></script>
+	<script src="frontend/js/main.js"></script>
+	<script>
+		function Order(idProduct) {
+			var Orders = {
+				"accountId":"10001",
+				"productId":idProduct
+			}
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to buy this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, buy it!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						header: {
+							'Accept': 'application/json',
+							'Content-Type': 'application/json'
+						},
+						url: "/api/orders",
+						type: 'POST',
+						contentType: 'application/json; charset=UTF-8',
+						data: JSON.stringify(Orders),
+						success: function () {
+							alertStatus("Buy success", "success");
+						},
+						error: function () {
+							alertStatus("Buy error", "error");
+						}
+					});
+
+				}
+			})
+		}
+
+		function alertStatus(title, icon) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'center',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: icon,
+				title: title
+			})
+		}
+	</script>
+
 </body>
 
 </html>
