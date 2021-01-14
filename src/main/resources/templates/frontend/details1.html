@@ -893,7 +893,15 @@
             url: "/api/comment",
             data: JSON.stringify(obj),
             success:function (resp) {
-                getListComment();
+                let comment = resp.data;
+                $('<li class="comments__item">').append(
+                    $('<div class="comments__autor">').append(
+                        $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
+                        $('<span class="comments__name">').text(dcm),
+                        $('<span class="comments__time">').text(comment.createtime),
+                    ),
+                    $('<p class="comments__text">').text(comment.commentText),
+                ).appendTo('#commentList');
                 $('#text').val('');
             }
         })
@@ -901,7 +909,7 @@
 
 
     function getListComment() {
-        document.getElementById("commentList").innerHTML = "";
+        // document.getElementById("commentList").innerHTML = "";
         $.ajax({
             type: "PATCH",
             url: "/api/comment?idVideo=" + idVideo,
