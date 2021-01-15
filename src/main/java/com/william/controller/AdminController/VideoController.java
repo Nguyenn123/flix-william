@@ -1,5 +1,6 @@
 package com.william.controller.AdminController;
 
+import com.william.entity.AccountEntity;
 import com.william.entity.VideoForm;
 import com.william.entity.VideosEntity;
 import com.william.service.IVideoService;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -35,15 +37,38 @@ public class VideoController {
     private String fileUploadVideoTrailer;
 
     @RequestMapping("/new-video")
-    public ModelAndView addNewVideo() {
-        ModelAndView modelAndView = new ModelAndView("/backend/add-item");
-        modelAndView.addObject("product", new VideoForm());
+    public ModelAndView addNewVideo(HttpSession session) {
+        ModelAndView modelAndView;
+        Optional<AccountEntity> logged = (Optional<AccountEntity>) session.getAttribute("userLogged");
+
+        if(logged == null){
+            modelAndView = new ModelAndView("redirect:/login");
+        } else {
+            if(logged.get().getRole() == 10001){
+                modelAndView = new ModelAndView("/backend/add-item");
+                modelAndView.addObject("product", new VideoForm());
+            }
+            else {
+                modelAndView = new ModelAndView("/backend/404");
+            }
+        }
         return modelAndView;
     }
 
-    @RequestMapping("/videos")
-    public ModelAndView Video() {
-        ModelAndView modelAndView = new ModelAndView("/backend/catalog");
+    @RequestMapping("/catalog")
+    public ModelAndView Video(HttpSession session) {
+        ModelAndView modelAndView = null;
+        Optional<AccountEntity> logged = (Optional<AccountEntity>) session.getAttribute("userLogged");
+        if(logged == null){
+            modelAndView = new ModelAndView("redirect:/login");
+        } else {
+            if(logged.get().getRole() == 10001){
+                modelAndView = new ModelAndView("/backend/catalog");
+            }
+            else {
+                modelAndView = new ModelAndView("/backend/404");
+            }
+        }
         return modelAndView;
     }
 
@@ -77,12 +102,6 @@ public class VideoController {
         return new RedirectView("");
     }
 
-    // Tung code
-    @GetMapping("/catalog")
-    public String catalog(Model model) {
-        model.addAttribute("videos", videoService.findAll());
-        return "backend/catalog";
-    }
 
     @PostMapping("/edit")
     public RedirectView createProduct(@RequestParam int id,
@@ -103,16 +122,31 @@ public class VideoController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (imgVideo == null)
+        if (imgVideo.equals("")) {
+            product1.setImgVideo(product2.get().getImgVideo());
+        } else {
+            product1.setImgVideo(imgVideo);
+        }
 
-        product1.setImgVideo(imgVideo);
+        if (fileVideo.equals("")) {
+            product1.setVideoEmbed(product2.get().getVideoEmbed());
+        } else {
+            product1.setVideoEmbed(fileVideo);
+        }
+
+        if (fileVideoTrailer.equals("")) {
+            product1.setVideotrailerEmbed(product2.get().getVideotrailerEmbed());
+        } else {
+            product1.setVideotrailerEmbed(fileVideoTrailer);
+        }
+
         product1.setAccountId(videoForm.getAccountId());
         product1.setCategoryId(videoForm.getAccountId());
         product1.setDescription(videoForm.getDescription());
         product1.setTitle(videoForm.getTitle());
-        product1.setVideoEmbed(fileVideo);
+//        product1.setVideoEmbed(fileVideo);
         product1.setStatusVideo(videoForm.getStatusVideo());
-        product1.setVideotrailerEmbed(fileVideoTrailer);
+//        product1.setVideotrailerEmbed(fileVideoTrailer);
         product1.setImdbScore(videoForm.getImdbScore());
         product1.setCreatetime(Timestamp.valueOf(LocalDateTime.now()));
         videoService.save(product1);

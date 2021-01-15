@@ -31,7 +31,7 @@
 	<header class="header">
 		<div class="header__content">
 			<!-- header logo -->
-			<a href="index.html" class="header__logo">
+			<a href="/" class="header__logo">
 				<img src="backend/img/logo.svg" alt="">
 			</a>
 			<!-- end header logo -->
@@ -50,7 +50,7 @@
 	<!-- sidebar -->
 	<div class="sidebar">
 		<!-- sidebar logo -->
-		<a href="index.html" class="sidebar__logo">
+		<a href="/" class="sidebar__logo">
 			<img src="backend/img/logo.svg" alt="">
 		</a>
 		<!-- end sidebar logo -->
@@ -63,11 +63,11 @@
 
 			<div class="sidebar__user-title">
 				<span>Admin</span>
-				<p>John Doe</p>
+				<p id="adminName"></p>
 			</div>
 
 			<button class="sidebar__user-btn" type="button">
-				<i class="icon ion-ios-log-out"></i>
+				<a href="/logout"><i class="icon ion-ios-log-out"></i></a>
 			</button>
 		</div>
 		<!-- end sidebar user -->
@@ -75,19 +75,19 @@
 		<!-- sidebar nav -->
 		<ul class="sidebar__nav">
 			<li class="sidebar__nav-item">
-				<a href="index.html" class="sidebar__nav-link"><i class="icon ion-ios-keypad"></i> Dashboard</a>
+				<a href="/admin/" class="sidebar__nav-link"><i class="icon ion-ios-keypad"></i> Dashboard</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="catalog.html" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Catalog</a>
+				<a href="/admin/catalog" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Catalog</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="users.html" class="sidebar__nav-link"><i class="icon ion-ios-contacts"></i> Users</a>
+				<a href="/admin/user" class="sidebar__nav-link"><i class="icon ion-ios-contacts"></i> Users</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="comments.html" class="sidebar__nav-link"><i class="icon ion-ios-chatbubbles"></i> Comments</a>
+				<a href="/admin/comments" class="sidebar__nav-link"><i class="icon ion-ios-chatbubbles"></i> Comments</a>
 			</li>
 
 			<li class="sidebar__nav-item">

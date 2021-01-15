@@ -34,7 +34,9 @@
 
 </head>
 <body class="body">
-
+<th:block th:if="${user}">
+    <input type="hidden" id="userId" th:value="${user.id}">
+</th:block>
 <!-- header -->
 <header class="header">
     <div class="header__wrap">
@@ -877,34 +879,45 @@
 
     function addComment() {
         let commentText = document.getElementById('text').value;
-        let accountId = 10002;
+        // let accountId = document.getElementById('userId');
+        if(!document.getElementById('userId')){
+            window.location.href = "/login";
+        } else {
+            let accountId = document.getElementById('userId').value;
 
-        let obj = {
-            "accountid" : accountId,
-            "videoid" : idVideo,
-            "commentText" : commentText
-        }
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "POST",
-            url: "/api/comment",
-            data: JSON.stringify(obj),
-            success:function (resp) {
-                let comment = resp.data;
-                $('<li class="comments__item">').append(
-                    $('<div class="comments__autor">').append(
-                        $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
-                        $('<span class="comments__name">').text(dcm),
-                        $('<span class="comments__time">').text(comment.createtime),
-                    ),
-                    $('<p class="comments__text">').text(comment.commentText),
-                ).appendTo('#commentList');
-                $('#text').val('');
+            let obj = {
+                "accountid": accountId,
+                "videoid": idVideo,
+                "commentText": commentText
             }
-        })
+            $.ajax({
+                type: "GET",
+                url: "/api/account/find?id=" + accountId,
+                success: function (respU) {
+                    $.ajax({
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        type: "POST",
+                        url: "/api/comment",
+                        data: JSON.stringify(obj),
+                        success: function (resp) {
+                            let comment = resp.data;
+                            $('<li class="comments__item">').append(
+                                $('<div class="comments__autor">').append(
+                                    $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
+                                    $('<span class="comments__name">').text(respU.data.username),
+                                    $('<span class="comments__time">').text(comment.createtime),
+                                ),
+                                $('<p class="comments__text">').text(comment.commentText),
+                            ).appendTo('#commentList');
+                            $('#text').val('');
+                        }
+                    })
+                }
+            })
+        }
     }
 
 
@@ -919,11 +932,11 @@
                         type: "GET",
                         url: "/api/account/find?id=" + comment.accountid,
                         success: function (resp) {
-                            dcm = resp.data.username;
+                            // dcm = resp.data.username;
                             $('<li class="comments__item">').append(
                                 $('<div class="comments__autor">').append(
                                     $('<img class="comments__avatar" src="frontend/img/user.png" alt="">'),
-                                    $('<span class="comments__name">').text(dcm),
+                                    $('<span class="comments__name">').text(resp.data.username),
                                     $('<span class="comments__time">').text(comment.createtime),
                                 ),
                                 $('<p class="comments__text">').text(comment.commentText),
