@@ -53,15 +53,15 @@
 	<!-- sidebar -->
 	<div class="sidebar">
 		<!-- sidebar logo -->
-		<a href="index.html" class="sidebar__logo">
-			<img src="img/logo.svg" alt="">
+		<a href="/" class="sidebar__logo">
+			<img src="backend/img/logo.svg" alt="">
 		</a>
 		<!-- end sidebar logo -->
 		
 		<!-- sidebar user -->
 		<div class="sidebar__user">
 			<div class="sidebar__user-img">
-				<img src="img/user.svg" alt="">
+				<img src="backend/img/user.svg" alt="">
 			</div>
 
 			<div class="sidebar__user-title">
@@ -78,19 +78,19 @@
 		<!-- sidebar nav -->
 		<ul class="sidebar__nav">
 			<li class="sidebar__nav-item">
-				<a href="index.html" class="sidebar__nav-link"><i class="icon ion-ios-keypad"></i> Dashboard</a>
+				<a href="/admin/" class="sidebar__nav-link"><i class="icon ion-ios-keypad"></i> Dashboard</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="catalog.html" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Catalog</a>
+				<a href="/admin/catalog" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Catalog</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="users.html" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-contacts"></i> Users</a>
+				<a href="/admin/user" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-contacts"></i> Users</a>
 			</li>
 
 			<li class="sidebar__nav-item">
-				<a href="comments.html" class="sidebar__nav-link"><i class="icon ion-ios-chatbubbles"></i> Comments</a>
+				<a href="/admin/comments" class="sidebar__nav-link"><i class="icon ion-ios-chatbubbles"></i> Comments</a>
 			</li>
 
 			<li class="sidebar__nav-item">
@@ -406,10 +406,9 @@
 	$(document).ready(showList());
 	function showList() {
 		document.getElementById("dataTable").innerHTML="";
-
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/home/login",
+			url: "http://localhost:8080/api/account",
 			success: function (account) {
 				document.getElementById("sessionname").innerHTML=`<p>ddm</p> `
 				$.each(account.data, function (index, item) {
@@ -448,7 +447,7 @@
 					'Content-Type': 'application/json'
 				},
 				type: "DELETE",
-				url: "http://localhost:8080/home/login/" + id,
+				url: "http://localhost:8080/api/account/" + id,
 				success: function (res) {
 					if (res.status == 1) {
 						alert("Xóa thành công!")
@@ -475,7 +474,7 @@
 				'Content-Type': 'application/json'
 			},
 			type: "GET",
-			url: "http://localhost:8080/home/login/find?id=" + id,
+			url: "http://localhost:8080/api/account/find?id=" + id,
 			success: function (res) {
 			    console.log(res)
 				$('#id').val(res.data.id)
@@ -528,13 +527,13 @@
             account.statusAccount = $('#statusaccount').val()
 			var id = $("#id").val()
 			if (id) {
-				linkUrl = "http://localhost:8080/home/login/"+id
+				linkUrl = "http://localhost:8080/api/account/"+id
 				console.log(linkUrl)
 				methodName = "PUT"
 				account.id = id
 			} else {
 				methodName = "POST"
-				linkUrl = "http://localhost:8080/home/login"
+				linkUrl = "http://localhost:8080/api/account"
 			}
 			var productObj = JSON.stringify(account)
 			console.log(account)
