@@ -26,7 +26,11 @@
     <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
-
+<style>
+    .myHidden{
+        display: none;
+    }
+</style>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Dmitry Volkov">
@@ -60,57 +64,28 @@
                                     <li><a href="index2.html">Home static bg</a></li>
                                 </ul>
                             </li>
+                            <li class="header__nav-item ">
+                                <a href="/catalog/" class="header__nav-link">Catalog</a>
+                            </li>
+
                             <!-- end dropdown -->
 
-                            <!-- dropdown -->
-                            <li class="header__nav-item">
-                                <a class="dropdown-toggle header__nav-link" href="#" role="button"
-                                   id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">Catalog</a>
-
-                                <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuCatalog">
-                                    <li><a href="catalog1.html">Catalog Grid</a></li>
-                                    <li><a href="catalog2.html">Catalog List</a></li>
-                                    <li><a href="details1.html">Details Movie</a></li>
-                                    <li><a href="details2.html">Details TV Series</a></li>
-                                </ul>
-                            </li>
-                            <!-- end dropdown -->
-
-                            <li class="header__nav-item">
-                                <a href="pricing.html" class="header__nav-link">Pricing Plan</a>
+                            <li class="header__nav-item myHidden" id="admin">
+                                <a href="/admin/" class="header__nav-link">Admin</a>
                             </li>
 
-                            <li class="header__nav-item">
-                                <a href="faq.html" class="header__nav-link">Help</a>
-                            </li>
-
-                            <!-- dropdown -->
-                            <li class="dropdown header__nav-item">
-                                <a class="dropdown-toggle header__nav-link header__nav-link--more" href="#"
-                                   role="button" id="dropdownMenuMore" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false"><i class="icon ion-ios-more"></i></a>
-
-                                <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuMore">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="signin.html">Sign In</a></li>
-                                    <li><a href="signup.html">Sign Up</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <!-- end dropdown -->
                         </ul>
                         <!-- end header nav -->
 
                         <!-- header auth -->
-                        <div class="header__auth">
-                            <button class="header__search-btn" type="button">
-                                <i class="icon ion-ios-search"></i>
-                            </button>
-
-                            <a href="signin.html" class="header__sign-in">
+                        <div>
+                            <a href="/login" class="header__sign-in" id="login">
                                 <i class="icon ion-ios-log-in"></i>
                                 <span>sign in</span>
+                            </a>
+                            <a href="/logout" class="header__sign-in myHidden" id="logout">
+                                <i class="icon ion-ios-log-in"></i>
+                                <span>Logout</span>
                             </a>
                         </div>
                         <!-- end header auth -->
@@ -254,7 +229,29 @@
 <script src="frontend/js/main.js"></script>
 <script>
     const URL_API = "http://localhost:8080/";
+    var buttonLogin = document.querySelector('#login')
+    var showAdmin = document.querySelector('#admin')
+    var buttonLogout = document.querySelector('#logout')
+function userLogin(){
+    $.ajax({
+        type: "GET",
+        url: URL_API + "api/account/ss",
+        success : function (res){
 
+            console.log(res.data)
+            if (res.data!=null){
+                buttonLogin.classList.add('myHidden')
+                showAdmin.classList.remove('myHidden')
+                buttonLogout.classList.remove('myHidden')
+            }else {
+                buttonLogin.classList.remove('myHidden')
+                showAdmin.classList.add('myHidden')
+                buttonLogout.classList.add('myHidden')
+            }
+        }
+    })
+}
+userLogin()
     function showCategory() {
         $.ajax({
             type: "GET",
