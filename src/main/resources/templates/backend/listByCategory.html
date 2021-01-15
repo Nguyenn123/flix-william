@@ -43,7 +43,7 @@
                 <div class="col-12">
                     <div class="header__content">
                         <!-- header logo -->
-                        <a href="index.html" class="header__logo">
+                        <a href="/" class="header__logo">
                             <img src="frontend/img/logo.svg" alt="">
                         </a>
                         <!-- end header logo -->
@@ -56,8 +56,8 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
 
                                 <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuHome">
-                                    <li><a href="index.html">Home slideshow bg</a></li>
-                                    <li><a href="index2.html">Home static bg</a></li>
+                                    <li><a href="/">Home slideshow bg</a></li>
+                                    <li><a href="/">Home static bg</a></li>
                                 </ul>
                             </li>
                             <!-- end dropdown -->
@@ -158,8 +158,8 @@
 
                     <!-- breadcrumb -->
                     <ul class="breadcrumb">
-                        <li class="breadcrumb__item"><a href="#">Home</a></li>
-                        <li class="breadcrumb__item breadcrumb__item--active">Catalog grid</li>
+                        <li class="breadcrumb__item"><a href="/">Home</a></li>
+                        <li class="breadcrumb__item breadcrumb__item--active"><a href="/listCategory">Catalog grid</a></li>
                     </ul>
                     <!-- end breadcrumb -->
                 </div>
@@ -628,13 +628,13 @@
                         $('<div class="card">').append(
                             $('<div class="card__cover">').append(
                                 $('<img src="/database/images/' + video.imgVideo + '" alt="">'),
-                                $('<a href="#" class="card__play">').append(
+                                $('<a href="/detail?idVideos='+ video.id +'" class="card__play">').append(
                                     $(' <i class="icon ion-ios-play"></i>')
                                 )
                             ),
                             $('<div class="card__content">').append(
                                 $('<h3 class="card__title">').append(
-                                    $('<a href="#">').text(video.title)
+                                    $('<a href="/detail?idVideos='+ video.id +'">').text(video.title)
                                 ),
                                 $('<span class="card__category">').append(
                                     $('<a href="#">').text(video.categoryId)

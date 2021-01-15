@@ -512,7 +512,7 @@
 							$('<td>').append(
 									$('<div class="main__table-text">').text(video.id)),
 							$('<td>').append(
-									$('<div class="main__table-text">').text(video.title)),
+									$('<a href="/detail?idVideos='+ video.id +'" class="main__table-text">').text(video.title)),
 							$('<td>').append(
 									$('<div class="main__table-text main__table-text--rate">').text(video.imdbScore ).append(
 											$('<i class="icon ion-ios-star">'))),
@@ -530,7 +530,7 @@
 									$('<div class="main__table-btns">').append(
 											$('<a href="#" class="main__table-btn main__table-btn--banned">').append(
 													$('<i class="icon ion-ios-lock"></i>')),
-											$('<a href="#" class="main__table-btn main__table-btn--view">').append(
+											$('<a href="/detail?idVideos='+ video.id +'" class="main__table-btn main__table-btn--view">').append(
 													$(' <i class="icon ion-ios-eye"></i>')),
 											$('<button onclick="showCatalogEdit('+video.id+')" class="main__table-btn main__table-btn--edit">').append(
 													$('<i class="icon ion-ios-create"></i>')),
