@@ -30,10 +30,12 @@ public class VideoController {
     @Value("${upload.path}")
     private String fileUploadImg;
 
-    @Value("D:\\williamStream\\src\\main\\resources\\static\\database\\videos\\")
+//    @Value("D:\\williamStream\\src\\main\\resources\\static\\database\\videos\\")
+    @Value("C:\\Users\\Admin\\Desktop\\Case2\\flix-william\\src\\main\\resources\\static\\database\\videos\\")
     private String fileUploadVideo;
 
-    @Value("D:\\williamStream\\src\\main\\resources\\static\\database\\videosTrailer\\")
+//    @Value("D:\\williamStream\\src\\main\\resources\\static\\database\\videosTrailer\\")
+    @Value("C:\\Users\\Admin\\Desktop\\Case2\\flix-william\\src\\main\\resources\\static\\database\\videosTrailer\\")
     private String fileUploadVideoTrailer;
 
     @RequestMapping("/new-video")
